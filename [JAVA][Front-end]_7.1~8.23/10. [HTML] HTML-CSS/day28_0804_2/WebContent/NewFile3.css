@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* 스타일 주석 */
+
+/*모든 태그들은 마진과 패딩을 가진다.
+사이트 내 브라우저 마다 크기가 다르다. --> 웹표준접근성 지침에 안맞다.  
+				→ 각 스타일에 패딩/마진을 넣어주자!
+마진: 바깥에 표 테두리 범위
+패딩: 글씨와 테두리 사이 범위*/
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+h2{
+	margin: 5px;
+}
+/* "유지보수를 위해 인라인은 최소화하자" >> 내부스타일을 사용하자
+ 내부 스타일시트 table, tr td,inputName : 유지보수성이 좋기 때문에 많이사용된다.*/
+table { /*1픽스의 테두리검은선*/
+	margin: 10px;
+	padding: 2px;
+	border: 1px solid black;
+}
+
+tr, td { /*1픽스의 테두리빨간선*/
+	border: 3px solid red;
+}
+/* 19라인 : 겉 테두리만 보여줘 solid>>dotted(동그란 선) 도트모양 테두리가 생김 행열 스타일 변환 */
+
+#inputName { /*ID*/
+	background-color: lightblue;
+}
+.two{ /*Class : */
+	backgroud-color: pink;
+}
+/* 만약에 값이 잘 안뜬다면 인라인을 의심하거나, 문법이 틀린것
+선택자(select) : UI의 어느 부분을 디자인할지, 표현의 대상이 되는 부분
+선택자{
+	속성: 값;
+} == 선언
+*/

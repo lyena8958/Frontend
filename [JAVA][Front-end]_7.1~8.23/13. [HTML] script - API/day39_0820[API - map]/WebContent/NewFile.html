@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구글맵 API</title>
+<style type="text/css">
+* {
+	margin: 5px;
+}
+html, body{
+ height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+	border: 2px solid blue;
+	width: 1000px;
+	height: 800px;
+}
+#floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: "Roboto", "sans-serif";
+    line-height: 30px;
+    padding-left: 10px;
+}
+</style>
+<script
+	src="http://maps.google.com/maps/api/js?key=AIzaSyCFjSrnyzW0j5Kfp_D0SXCaxbB4jF5AzK4&region=kr"></script>
+<!-- 내가 전달할 파라미터, 요청변수
+// http://maps.google.com/maps/api/js?key=발급받은인증키&region=kr == 마치 줌 링크처럼 데이터가 있는 것처럼
+// &region=kr는 한국어로 나오게끔 설정해주는 것 설정안해주면 중국어...?로 나온다고 함 -->
+
+
+
+</head>
+<body>
+	<div id="map"></div>
+	<button id="btn1">지도 변경1</button><!-- 지도 중심변경 -->
+	<button id="btn2">지도 변경2</button><!-- 새로운지도 로드 -->
+	<button id="btn3">지도 변경3</button><!-- 지도 45도 -->
+	
+	<div id="iframe-contents"><!--  btn3만 작동 - 45도씩 회전하는 기능--> 
+		<input type="button" value="자동회전" id="rotate">
+	</div>
+
+	<script type="text/javascript">
+	var btn1 = document.getElementById("btn1");
+	var btn2 = document.getElementById("btn2");
+	var btn3 = document.getElementById("btn3");
+	btn1.addEventListener("click", changeMap1);
+	btn2.addEventListener("click", changeMap2);
+	btn3.addEventListener("click", changeMap3);
+	
+	//구글지도가 올바르지 않습니다 라는 문구가 뜨면 key가 잘못되었거나, script에서 오타난것
+		var map; // 다른 메서드도 활용하기 위해 메서드 밖에서 변수생성함
+		function initMap(){
+			//37.500624, 127.036268 //위도, 경도(역삼역)
+			// 모든 위치 폼은 다음과 같다 ↓
+			var ll={lat : 37.500624, lng : 127.036268}; // 데이터를 한꺼번에 보관하기 위해 딕셔너리활용(배열은 명칭이 안나와있어 식별이어렵다.)
+			
+			map = new google.maps.Map( //인자가 두개 (어디에, 무엇을 보여줄건지)
+					document.getElementById("map"),
+					{zoom:17 ,center : ll} // zoom:지도 확대축소 기능(숫자가 클수록 확대 작을수로 축소)					
+			); 
+			//initMap을 했을때 마커도 추가해주자
+			new google.maps.Marker(
+				{position : ll,
+				 map : map,
+				 label : "내 현재위치" }//마커문구
+			);
+		}
+		initMap(); // 맵 생성
+		
+		// 지도의 중심을 변경하는 작업(지도는 그대로)
+		function changeMap1(){
+			var ll = {lat : 33.369515, lng : 126.564646}; // 지역변수
+			map.panTo(ll); // 새로운 위치에 대해 다시 띄워줘 
+			map.setZoom(9);
+		} 
+		// 새로운 지도를 로드 (지도 새로고침)
+		function changeMap2(){
+			var ll = {lat : -40.339098, lng : 175.609729};
+			map = new google.maps.Map(
+				document.getElementById("map"),
+				{zoom : 13, center : ll}
+			);
+		}
+		
+		function changeMap3(){
+				var ll = {lat : 40.76, lng : -73.983 };
+				map = new google.maps.Map( 
+						document.getElementById("map"),
+						{
+							center : ll, 
+							zoom:17 ,
+							map : map,
+							heading : 90, 
+							tilt : 45,
+					} // zoom:지도 확대축소 기능(숫자가 클수록 확대 작을수로 축소)					
+				); 
+				 map.setTilt(45);
+				 document.getElementById("rotate").addEventListener("click", autoRotate);
+		}
+		
+
+		
+		function rotate90() {
+			  const heading = map.getHeading() || 0;
+			  map.setHeading(heading + 90);
+			}
+
+			function autoRotate() {
+			  // Determine if we're showing aerial imagery.
+			  if (map.getTilt() !== 0) {
+			    window.setInterval(rotate90, 3000);
+			  }
+			}
+		
+		
+	</script>
+
+
+</body>
+</html>

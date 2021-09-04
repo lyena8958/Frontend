@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+div {
+   width: 100%;
+   height: 100px;
+   text-align: center;
+   line-height: 100px;
+}
+</style>
+</head>
+<body>
+
+   <script type="text/javascript">
+      var color = [ "pink", "lightblue", "lightgreen" ];
+      var rand = Math.floor(Math.random() * 3);
+      var inputNum = prompt('010이후로부터 -를 넣어서 번호를 입력하세요.');
+
+      // 1. - 유무
+      // indexOf("-") < 0 이면, 다시
+      // 2. split()
+      // arrData[0] == 4    and     arrData[1] == 4 이어야만 통과
+      // 3. 숫자판별
+      // arrData[0]과 arrData[1]이 isNaN() 만약 true면, 다시
+      
+      
+      if (inputNum.indexOf("-") != 4 || inputNum.length != 9) {
+         var str = "<div style='background-color:"+color[rand]+"'>"
+               + "잘못 입력하셨습니다. 새로고침하여 다시시도하세요." + "</div>";
+
+      } else {
+         
+         var arrData=inputNum.split("-");
+         console.log(arrData[0]);
+         console.log(arrData[1]);
+         
+         var num = inputNum.replace(inputNum.substring(5,9),"****");
+                 
+         
+         inputNum=arrData[0]+"-****";
+         
+         
+         var str = "<div style='background-color:"+color[rand]+"'>" + inputNum + "님 환영합니다!" + "</div>";
+      }
+
+      document.write(str);
+   </script>
+
+</body>
+</html>

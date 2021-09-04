@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>트리거(애니메이션 효과)</title>
+<script src="jquery-3.6.0.min.js"></script>
+	
+<style>
+	*{
+		margin : 3px;
+		padding : 3px;
+	}
+	body{
+		overflow : hidden; /*바디밖에 초과되는 애들은 가림(상태바를 가릴 예정)*/ 
+		/*body보다 상위개념이 된 것이 있다면 보여질수도있으니 안정성을 위해 추가*/
+	}
+	#box1{
+		height : 100px;
+		background: hotpink;
+		transform : translateX(-95%); /*상태바를 왼쪽으로 밀어냄 5%만 남김*/
+		transition-duration : 2s; /*변화를 감지했을 때 2초 소요*/
+	}
+	#box2{
+		height : 100px;
+		background : aqua;
+		transform : translateX(95%); /*상태바를 오른쪽으로 밀어냄, 5%만 남김*/
+		transition-duration : 2s; /*변화를 감지했을 때 2초 소요*/
+	}
+	#box1.on, #box2.on{ /*박스 속성에게 on을 주는것이므로 부모box도 해야함 - on만 단독불가*/
+		transform : translateX(0); /*on이 되면 전체 상태바를 보여줌*/	
+	}
+</style>
+
+<script type="text/javascript">
+// trigger == 누르거나 등록하거나 클릭했을 때 중복작업을 단순화 핸들링할 수 있게 해줌
+<!-- 이벤트 트리거 -> 방아쇠역할 == 트리거 -->
+<!-- 이벤트 트리거 발생(동작,실현) -> 리스너가 인지 -> 동작 수행 == 이벤트 발생(메서드가 호출된 시점) -->
+	$(document).ready(function(){ // 자바스크립트에서 한 이벤트리스너처럼 구현
+		$("#btn1").on("click", function(){ //핑크 박스
+			$("#box1").toggleClass("on");
+		}).trigger("click"); // 트리거 구현(클릭에 대한) // 항상동자
+		
+		$("#btn2").on("click", function(){ //베이직 박스
+			$("#box2").toggleClass("on");
+		}).trigger("click");
+		
+		$("#btn3").on("click", function(){ // 모든박스
+			$("#btn1").trigger("click");
+			$("#btn2").trigger("click");
+		});
+	});
+
+// 장바구니 상품1 상품 2 상품 3 상품 4
+// [장바구니 전체비우기] : 이벤트 제거, 효과제거, 애니메이션 제거, 문구제거 .... ==> 를 전부 총괄하는 [삭제 버튼]이 있다.
+// 장바구니 전체비우기 를 누르면 상품1 == x5줄(ex), 총합 20줄을 없애야한다. == 중복코드가 많다
+//		--> 이미 구현을 해놨을테니 전체비우기를 누르면 구현되어있던 애들을 데려와서 일괄처리하자 == 4줄짜리 코드(각 상품번호를 삭제한것처럼 동작하게끔)
+</script>
+</head>
+<body>
+
+<div id="box1"></div>
+<div id="box2"></div>
+<button id="btn1">버튼1</button>
+<button id="btn2">버튼2</button>
+<button id="btn3">버튼3</button>
+
+</body>
+</html>

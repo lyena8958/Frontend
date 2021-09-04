@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>최종-반응형 웹 페이지</title>
+<style>
+body{
+	background : lightgray;
+}
+.clear:after{
+	content :"";
+	displau : block;
+	clear: both;
+}
+li {
+	list-style-type: none;
+	margin: 5px;
+}
+
+a {
+	color: black;
+}
+.menu{
+	width: 300px; /*사이즈가 커도 메뉴1..3부분이 좌측으로 갈수있게*/
+
+}
+header {
+	background: coral;
+	color: white;
+}
+
+.menu li {
+	background: lightgreen;
+}
+
+.aside ul {
+	background: lightgreen;
+}
+footer{
+	background: gray;
+}
+
+/*미디어쿼리*/
+@media all and (min-width: 768px) and (max-width : 1024px){
+	.menu{float:left; width:25%;}
+	.content {float:left; width:75%;}
+	.aside{clear:both;} /*창을줄일때 밑으로빠질 수잇어서 클리어적용*/
+}
+@media all and(min-width:1025px) {
+   .wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+   }
+   .menu {
+      float: left;
+      width: 20%;
+   }
+   .content {
+      float: left;
+      width: 50%;
+   }
+   .aside {
+      float: right;
+      width: 30%;
+   }
+}
+
+
+</style>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<h1>가이드</h1>
+		</header>
+		<div id="container" class="clear">
+			<!-- 단이 삼단 == div세개 -->
+			<div class="menu">
+			<ul>
+				<li><a href="#">메뉴1</a></li>
+				<li><a href="#">메뉴2</a></li>
+				<li><a href="#">메뉴3</a></li>
+			</ul>
+			</div>
+			<div class="content">
+				<h2>사진</h2>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+			</div>
+			<div class="aside">
+				<ul>
+					<li><h2>NAVER</h2> <a href="#">클릭시 네이버로 이동</a>	</li>
+
+					<li><h2>NAVER</h2> <a href="#">클릭시 네이버로 이동</a></li>
+
+					<li><h2>NAVER</h2> <a href="#">클릭시 네이버로 이동</a></li>
+				</ul>
+			</div>
+			<!-- 광고나 배너가 있는 위치 -->
+		</div>
+		<footer>
+			<!-- &copy; ⓒ -->
+			<p>&copy;2021 All rights reserved.</p>
+		</footer>
+	</div>
+</body>
+</html>

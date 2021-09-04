@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/*폰트적용*/
+@import
+	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
+	;
+
+* {
+	align: center;
+	text-align: center;
+	font-family: 'Gowun Dodum', sans-serif;
+	margin: 0; 
+	padding : 0;
+	background-color: #E6FFFF;
+}
+.inputtitle{
+	width: 50px;
+	
+}
+table {
+	margin-left: 10px;
+	width: 50px;
+	heigth: 60px;
+	border: 1px solid lightgray;
+}
+
+h4 {
+	text-align: center;
+	font-size: 1.3em;
+	color: #7F7EFF;
+}
+
+h2 {
+	width: 50px;
+	margin-left: 10ex;
+	text-align: left;
+	font-size: 1.5em;
+}
+
+h1 {
+	width: 30px;
+	margin-left: 10px;
+	text-align: left;
+	font-size: 5em;
+	color: #5CD1E5
+}
+textarea {
+	resize: none;
+	width: 100px;
+}
+
+select {
+	align: center;
+	text-align-last: center;
+	width: 97px;
+	height: 30px;
+}
+option{
+	background-color: #FFFFFF;
+}
+
+.fontstyle {
+	align: left; 
+	font-size: 1.5em;
+	font-style: italic;
+	color: pink;
+}
+
+sublit {
+	align: right;
+}

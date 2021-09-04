@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+
+<!-- JQuery사용하겠다고 써야함 -->
+<script src="jquery-3.6.0.min.js"></script>
+
+<style type="text/css">
+	* {
+		margin: 5px;
+		padding: 3px;
+	}
+</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+		// JQuery를 사용하는 가장기본 (자바syso처럼..)
+		//$(document).ready(function(){실행문;});
+ 
+		/*$(document).ready(function() {
+			console.log('안녕하세요!')
+		}); */
+		
+		$(document).ready(function(){
+			$(".logo").css("border", "3px solid blue"); //==내가 뭔가를 선택하면 css스타일을 이렇게 만들 것이다.
+			$(".logo").css("background", "lightblue");
+			
+			$("#menu").css("border", "3px solid red");
+			$("#menu").css("background", "red");
+			
+			$("#menu ul").css("border", "3px solid green");
+			$("#menu ul").css("background", "lightgreen");
+			
+			$("#menu ul > li").css("border", "3px solid pink");
+			$("#menu ul > li").css("background", "lightpink");
+			// 하위를 선택할때는 띄어쓰기도 되지만, >도 가능하다.
+		});
+	</script>
+
+
+	<header id="header">
+		<div class="logo">로고</div>
+		<div class="member">회원가입</div>
+		<nav id="menu"><!-- nav:그룹용 태그 list처럼 모양을 만들지않음 -->
+			<ul>
+				<li>메뉴1</li>
+				<li>메뉴2</li>
+			</ul>
+		</nav>
+	</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

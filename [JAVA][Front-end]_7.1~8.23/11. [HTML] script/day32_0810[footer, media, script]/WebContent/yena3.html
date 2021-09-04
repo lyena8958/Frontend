@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+@media (max=width: 768px){
+ #wrapper {
+	background: #E8D9FF;
+	min-width: 760px;
+	}
+}
+#wrapper{
+	wudth:100%;
+}
+div{
+	display:block;
+}
+header {
+	text-align: left;
+	padding: 10px;
+}
+
+.main {
+	margin: 10px;
+	background: white;
+}
+
+.main h4 {
+	margin: 5px;
+}
+.main td{
+	margin : 100%;
+}
+.list {
+	text-align: right;
+	padding : 10px;
+}
+
+.phontInput {
+	width: 10%;
+}
+</style>
+<script>
+function nameInput(){
+	var name = prompt('성함을 입력해주세요.');
+	while(true){
+		if(isNaN(name)){
+			break;
+		}
+		name = prompt('숫자 입력은 불가합니다. 문자로 입력해주세요.');
+	}
+}
+function phoneNumInput(){
+	var name = prompt('전화번호 입력해주세요.');
+	while(true){
+		if(isNaN(name)){
+			break;
+		}
+		name = prompt('숫자 입력은 불가합니다. 문자로 입력해주세요.');
+	}
+}
+function check(a,b){
+	if(a=="" || b==""){
+		console.log("미입력사항확인");
+	}
+	else if(isNaN(b)){
+		console.log(a+"님, 나이에 잘못된 값이 들어왔습니다!")
+	}
+	else{
+		documant.write()
+	}
+	
+}
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		// 구구단
+		for (var i = 2; i <= 3; i++) {
+			for (var j = 1; j <= 9; j++) {
+				document.write(i + ' x ' + j + '=' + i * j);
+				document.write('<br>');
+			}
+			document.write('<br>');
+		}
+
+		// 별찍기
+		for (var i = 0; i < 5; i++) {
+
+			for (var j = 0; j < i + 1; j++) {
+				document.write('*');
+			}
+			document.write('<br>');
+		}
+
+		//줄정리
+		document.write('<br><br><br>');
+
+		// 2)사용자입력 처리로직
+		var v = prompt('전화번호 뒷자리 입력');
+	
+		while (true) {
+			if (isNaN(v)) {
+				v = prompt('문자 입력하셨습니다. 정수로 입력해주세요.');
+				continue;
+			}
+			break;
+		}
+		document.write("고객님의 휴대폰 뒷자리 : " + v);
+		
+	</script>
+
+	<!--3) html+css+js -->
+	<div class="wrapper">
+		<header>
+			<h1>회원가입 창</h1>
+		</header>
+	<div id="container" class="main">
+		
+			<table>
+				<tr>
+					<td class="list"><h4>성명 :</h4></td>
+					<td colspan="3"><input type="text" id="name"></td>
+				</tr>
+				<tr>
+					<td class="list"><h4 >전화번호 :</h4></td>
+					<td>010
+						<span>-</span> 
+						<input type="text" id="phoneCenter" class="phontInput">
+						<span>-</span>
+						<input type="text" id="phoneRight" class="phontInput">
+					</td>
+				</tr>
+				<br>
+				
+				<tr>
+					<td class="list"><h4>이메일 :</h4></td>
+					<td><input type="text" id="email">
+					<span> @ </span>
+					<select>
+						<option>==이메일 선택==</option>
+						<option>naver.com</option>
+						<option>gmail.com</option>
+						<option>daum.net</option>
+					</select>
+					</td>
+				</tr>
+				<tr align="right">
+					<td colspan="3"><input type="button" id="btn"
+						onclick="check();" value="회원가입"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

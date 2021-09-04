@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습</title>
+<style>
+#menu {
+	list-style-type: none;
+}
+
+#menu li {
+	border: 1px solid black;
+	margin: 3px;
+	background-color: lightcoral;
+	width: 15%;
+	transition : all 3s; /*모든 효과를 3초*/
+}
+</style>
+</head>
+<body>
+
+	<ul id="menu">
+		<li>상의</li>
+		<li>하의</li>
+		<li>신발</li>
+		<li>가방</li>
+	</ul>
+	<script type="text/javascript">
+		var ul = document.getElementById('menu');
+		console.log(ul);
+		var li = document.getElementsByTagName('li');
+		console.log(li);
+		for(var i = 0; i<li.length; i++){
+			li[i].addEventListener('mouseover', function(){
+				this.style.width = '50%';
+				this.style.backgroundColor = 'lightgreen';
+			})
+			
+			li[i].addEventListener('mouseout', function(){
+				this.style.width = '15%';
+				this.style.backgroundColor = 'coral';
+			})
+		}
+		
+	</script>
+</body>
+</html>

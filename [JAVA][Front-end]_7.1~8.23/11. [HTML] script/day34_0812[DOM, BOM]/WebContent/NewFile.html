@@ -1,0 +1,43 @@
+<!-- ctrl+shift+f4 위 파일 다지우기 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM, BOM 객체</title>
+<style>
+	button{
+		color : white;
+		background-color :green;
+		padding : 5px; 
+	}
+</style>
+</head>
+<body>
+
+<!-- 버튼을 클릭했을때 수행할 메서드(mB) -->				<!-- ↓ 텍스트노드 -->
+<button type="button" onclick="makeNewButton()">새로운 버튼 만들기</button>
+
+<script type="text/javascript">
+	// 메서드 구현
+	//지도검색시 가게 만큼만 로드되는 것을 활용할 수 있다.
+	function makeNewButton(){
+		var btn = document.createElement('button'); //버튼이란 요소를 만들거야
+		btn.onclick=function(){ //버튼onclick했을 때 수행할 함수니 메서드명 미지정
+			// btn를 onclick를 추가해줌
+			alert('내가 만든 버튼 클릭 이벤트 동작함!');
+		}
+		// "새로운 버튼 만들기"텍스트 노드를 추가해야하니 노드를 추가해줌
+		var txt = document.createTextNode('새로운 버튼'); //도큐먼트->
+		
+		//33, 34처럼 추가해준것(서로비슷)
+		btn.appendChild(txt);//버튼 안에 문구 추가
+		document.body.appendChild(btn); //append==add //버튼 추가
+		// document는 body란 자식이 있는데 btn을 추가해줌
+		// document에는 자식이있는데 boby에버튼을 추가하니
+		// document -> 자식인 boby -> 자식인 btn에 추가하겠다
+		// 바디안에 버튼 추가할건데
+	}
+</script>
+
+</body>
+</html>

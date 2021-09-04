@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+header {
+	background: coral;
+	color: white;
+	padding: 1px;
+}
+
+.clear:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+li {
+	list-style-type: none;
+	margin: 5px; /*칸띄우기 AAA~CCC*/
+}
+
+a {
+	color: black;
+}
+
+.menu li {
+	background: lightgreen;
+	padding: 10px;
+}
+
+.menu {
+	width: 300px;
+}
+
+.aside ul {
+	background: lightgreen;
+	margin: 20px;
+}
+
+.wrapper {
+	background: lightgray;
+}
+
+footer {
+	background: gray;
+	padding: 5px;
+}
+
+@media all and (min-width: /768px) and (max-width : 1024px) {
+	.menu {
+		float: left;
+		width: 25%;
+	}
+	.content {
+		float: left;
+		width: 75%;
+	}
+	.aside {
+		clear: both;
+	} /*창을줄일때 밑으로빠질 수잇어서 클리어적용*/
+}
+
+@media all and(min-width:1025px) {
+	.wrapper {
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+	.menu {
+		float: left;
+		width: 20%;
+	}
+	.content {
+		float: left;
+		width: 50%;
+	}
+	.aside {
+		float: right;
+		width: 30%;
+	}
+}
+</style>
+</head>
+<body>
+
+	<div class="wrapper">
+		<header>
+			<h1>가이드</h1>
+		</header>
+		<div id="container" class="clear">
+			<div class="menu">
+				<ul class="menu">
+					<li><a href="#">AAA</a></li>
+					<li><a href="#">BBB</a></li>
+					<li><a href="#">CCC</a></li>
+				</ul>
+			</div>
+
+			<div class="content">
+				<h2>사진</h2>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+				<p>
+					<a href="#">내용</a>
+				</p>
+			</div>
+
+			<div class="aside">
+				<ul>
+					<li><h2>NAVER</h2> <a href="#">클릭시 네이버로 이동</a></li>
+					<li><h2>NAVER</h2> <a href="#">클릭시 네이버로 이동</a></li>
+					<li><h2>NAVER</h2> <a href="#">클릭시 네이버로 이동</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<footer>
+			<p>ⓒ 2021 All rights reserved.</p>
+		</footer>
+	</div>
+	클라이언트 html css(디자인-퍼블릭싱) , 자바스크립트 J쿼리
+	서버 jsp spring
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position 속성</title>
+<style>
+	.box{
+		background: lightgray;
+		position: relative;
+	}
+	p{
+		width: 300px;
+		height: 100px;
+	}
+	.red{
+		background: red;
+	}
+	.blue{
+		background: blue;
+		position: absolute;
+		left: 100px;
+		top: 50px;
+	}
+	.green{
+		background: green;
+		position: absolute;
+		z-index: 10;
+	}
+</style>
+</head>
+<body>
+
+	<div class="box">
+		<p class="red">Lorem ipsum</p>
+		<p class="blue">Lorem ipsum</p>
+		<p class="green">Lorem ipsum</p>
+	</div>
+
+</body>
+</html>

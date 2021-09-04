@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹페이지 구조 작업하기</title>
+<style>
+/* *로 이렇게 쓰면 모든부분에 적용을 해서 로딩속도가 느려진다.*/
+/*그래서 하나하나 지정을 해주는것이 많다*/
+	body, header, div, footer, h1, p, ul, li { 
+		margin: 0;
+		padding: 0;
+	}
+	.clear:after{
+		content: ""; /*뒤에 아무것도 안넣겠다*/
+		display : block; /*clear는 블럭요소이므로 적용시켜주자*/
+		clear: both;
+	
+	}
+	li{
+		list-style-type: none;
+	}
+	a{
+		text-decoration: none;
+		color : black;
+	}
+	a:hover{
+		text-decoration: underline;
+	}
+	#wrapper{
+		background: lightgreen;
+	}
+	/*요소하나하나에 float를 처리해줬다*/
+	header{
+		float : left;
+		background : pink;
+		width: 100%;
+	}
+	h1{
+		margin: 3px;
+		float : left;
+	}
+	header li{/*.이없다는것은 :헤더아래의 li만 적용해줘*/
+		margin: 3px;
+		float : left;
+	}
+	.menu{/*li를 세로로 보여주고싶어서 정의*/
+		width: 20%;
+		background: lightblue;
+		float : left; /*로렘입숨글자를 옆으로 붙이게하고싶으면*/
+	}
+	.content{
+		width: 80%;
+		float : left;
+		background: lightgray;
+	}
+	footer{
+		background: gray;
+	}
+</style>
+</head>
+<body>
+
+	<div id="wrapper">
+		<!-- wrapper -->
+		<header class="clear">
+			<h1>
+				<a href="#">LOGO</a>
+			</h1>
+			<ul>
+				<li><a href="#">신상품</a></li>
+				<li><a href="#">인기상품</a></li>
+				<li><a href="#">할인상품</a></li>
+				<li><a href="#">무료배송</a></li>
+			</ul>
+		</header>
+
+		<div id="container" class="clear"><!-- clear처리를 안해주면 div내에서 footer로 인식하기때문 -->
+			<!-- 가장 큰 묶음이기때문에 하나이상 존재하지 않으니 id로지정 -->
+			<ul class="menu"> <!-- 각자 메뉴가 얼마나 차지하는지 정의하는게 좋다 -->
+				<li><a href="#">상의</a></li>
+				<li><a href="#">하의</a></li>
+				<li><a href="#">신발</a></li>
+				<li><a href="#">가방</a></li>
+			</ul>
+			<div class="content">
+				<p>
+					<!-- p태그는 a요소처럼 뜻이없기때문에 의미를 남겨준다 == div -->
+					Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit,<br>
+					sed do eiusmod tempor incididunt<br> ut labore et dolore magna
+					aliqua.<br> Ut enim ad minim veniam,<br> quis nostrud
+					exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.<br> Duis aute irure dolor in reprehenderit in
+					voluptate velit esse cillum dolore eu<br> fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident,<br>
+					sunt in ulpa qui officia deserunt mollit anim id est laborum.
+				</p>
+			</div>
+		</div>
+		<footer>
+			<p>회사소개 | 이용약관 | 개인정보처리방침 | ⓒ NAVER corp</p>
+
+		</footer>
+	</div>
+</body>
+</html>

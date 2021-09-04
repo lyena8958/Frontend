@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>swiper</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /><!-- ☆ -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            vertical-align: top;
+            width: 100%;
+        }
+        body {
+            font-family: "돋움", sans-serif;
+            font-size: 14px;
+            color: #000;
+        }
+        header {
+            height: 80px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 80px;
+        }
+        .content {
+            height: 330px;
+            background: #ddd;
+            text-align: center;
+            line-height: 330px;
+        }
+        footer {
+            height: 100px;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>    
+</head>
+<body>
+    <header>헤더</header>
+    <div class="visual">
+        <div class="swiper-container">
+            <div class="swiper-wrapper"> <!-- ☆img -->
+                <div class="swiper-slide"><a href="#"><img src="image/tmIcon.png" alt="1"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="image/mushroom.ico" alt="2"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="image/spring.jpg" alt="3"></a></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <section class="content">콘텐츠</section>
+    <footer>푸터</footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><!-- ☆ -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {<!-- ☆ -->
+            pagination: {
+                el: '.swiper-pagination'
+            }
+        });
+    </script>
+</body>
+</html>

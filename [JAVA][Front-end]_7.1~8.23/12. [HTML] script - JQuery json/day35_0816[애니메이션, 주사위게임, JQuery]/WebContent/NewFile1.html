@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>타이밍 이벤트(애니메이션 효과)</title>
+<style type="text/css">
+#box {
+	width: 100px;
+	height: 100px;
+	background-color: green;
+	border-radius : 50%; /*원형 만들기*/
+}
+</style>
+</head>
+<body>
+
+	<div id="box"></div>
+	<hr>
+	<button type="button" onclick="doMove();">시작</button>
+	<button type="button" onclick="doStop();">종료</button>
+
+
+	<script type="text/javascript">
+
+	//setInterval(함수, 시간1000당1초); 
+	
+	/* setInterval(function(){console.log('타이밍 이벤트 실습중!')
+		}, 1000);
+ 	*/
+ 
+ 	/* setInterval(func, 1000);
+ 	function func(){
+ 		console.log('내가 만든 메서드!');
+ 	} */
+
+ 	// 스크립트에서는 함수도 오브젝트
+ 	//스코프 설정-func : domove에서만 수행되어야 하니
+ 	var func;
+ 	var num = 0;
+ 	function doMove(){
+ 		func = setInterval(function(){
+ 		    var box = document.querySelector("#box");
+ 		    //좌표로 활용하려면 복잡하니 마진레프트을 이용해서 오른쪽을 이동하고자함
+ 		    //매번 새로운값 == num
+ 		    num += 5;
+ 		    box.style.marginLeft = num + 'px'
+ 		},500); // 0.5초 마다 num이 5씩 증가(마진 5증가)
+ 		
+ 	}
+ 	function doStop(){
+ 		// domove에서한 setinterval을 멈추는게 목적
+ 		clearInterval(func); //없애고자 할 인자를 넣음
+ 	}
+ 	
+</script>
+
+</body>
+</html>

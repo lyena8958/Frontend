@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<button type="button">회원가입</button>
+
+<script type="text/javascript">
+var btn = document.querySelector('button');
+btn.addEventListener('click', openNewWindow);
+var win;
+function openNewWindow(){
+
+	win = window.open('signUp2.html','회원가입창 이동','width=800,height=1000');
+
+}
+
+// 한스타일로 하나 실습중이라 따로구현했음 
+btn[1].addEventListener('click', function(){
+	win.close();
+}) // ;생략됨
+</script>
+
+</body>
+</html>

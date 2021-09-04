@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바와 유사한 new와 객체 활용</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		function Car(name, speed){
+			this.name = name;
+			this.speed = speed;
+			this.show=function(){
+				console.log(this.name+" : "+this.speed);
+			}
+		}
+
+		var car1 = new Car('택시',100);
+		var car2 = new Car('버스',80);
+		
+		console.log(car1.name);
+		car2.show();
+		
+		
+		function coffee(menuName, price){
+			this.menuName = menuName;
+			this.price = price;
+			this.show=function(){
+				console.log(this.menuName+" : "+this.price+"원");
+			}
+			this.menu=function(cnt){
+				console.log("주문하신 "+ menuName+" "+cnt+"개의 총 금액은 "+(cnt*price)+"원 입니다.");
+			}
+		}
+		
+		var user1 = new coffee('카페라떼', 2500);
+		var user2 = new coffee('아메리카노', 1500);
+		
+		user1.show();
+		user2.menu(5);
+		
+	</script>
+
+</body>
+</html>

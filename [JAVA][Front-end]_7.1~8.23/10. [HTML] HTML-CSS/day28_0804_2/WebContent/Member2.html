@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>참치라이더 회원가입</title>
+<link rel = "icon" href ="image/tuna2.ico">
+
+<style>
+.pont {
+color:#7F7EFF; 
+font-size:1.5em;
+width:20%; 
+height:40px; 
+text-align-last: right;
+
+}
+.address {
+text-align-last: center;
+}
+.inputStyle{
+	text-align-last: center;
+	align:right;
+	width:60%; 
+	height:40px;
+}
+table{
+	align : center;
+	margin: 10px;
+	padding: 2px;
+	table-layout: fixed;
+	width : 100%;
+}
+
+select{
+	text-align-last: center;
+	align:right;
+	width:60%; 
+	height:40px; 
+}
+
+</style>
+
+</head>
+<body>
+
+<form method="post">
+<hr>
+<br><br>
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+
+<!-- 이미지클릭 > 가입 창이동-->
+<a href = "#image">
+<center>
+<img src ="image/image.PNG">
+</center></a>
+
+<!-- 줄정리 -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<a name="image"></a> <!-- 이미지클릭>이동한부분 -->
+		<div name="어플 제목">
+			<h1>
+				<span style="font-size: 3em; color: #5CD1E5;"><center>⫷⫸참치라이더⫷⫸
+			</h1>
+			</span></center>
+			<br>
+			<br>
+			<br>
+			<br>
+			<h2>
+			
+				<center>참치라이더의 멤버가 되어주세요!
+			</h2>
+			</span>
+			</center>
+		</div>
+
+
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+
+<table >
+
+<div name="아이디 입력">
+<center>
+<tr align="center">
+<td class="pont"><h4>아이디 : </h4> </td>
+<td class="inputStyle" colspan="3"><input type="text" name="idInput" class="inputStyle" required></td>
+</tr>
+</div>
+
+<div name="패스워드 입력">
+<tr align="center">
+<td class="pont"><h4>패스워드 : </h4></td>
+<td class="inputStyle" colspan="3"><input type="text" name="pwInput" class="inputStyle" required></td>
+</tr>
+</div>
+
+<div name="주소 입력">
+<tr align="center">
+<td class="pont"><h4>주소 : </h4></td> <br><br>
+<td><select name="도시선택(시ㆍ도)">
+					<option>도시선택</option>
+					<option>서울특별시</option>
+					<option>경기도</option>
+	
+	</select></td>
+<td><select  name="지역선택">
+					<option>지역선택</option>
+					<option>강서구</option>
+					<option>양천구</option>
+					<option>구로구</option>
+					<option>강북구</option>
+					<option>종로구</option>
+					<option>강남구</option>
+					<option>서초구</option>
+					<option>송파구</option>
+					<option>수원시</option>
+					<option>화성시</option>
+					<option>오산시</option>
+					<option>용인시</option>
+					<option>안산시</option>
+	</select>
+</td>
+<td></select> <input type="text" name="addressinput" class="inputStyle"	required></td>
+</tr >
+
+<tr align="center">
+<td class="pont"><h4>휴대폰 번호: </h4></td>
+<td><select style="pont: 10px">
+<option>010</option>
+</select></td>
+<td><input type="text" class="inputStyle" maxlength="4" required></td>
+<td><input type="text" class="inputStyle" maxlength="4" required></td>
+
+</tr>
+
+<div name="회원 점주 선택">
+<tr align="center">
+<td class="pont" colspan="1"><h4>회원선택 :</h4></td>
+<td colspan="3"><center>
+<select name="memberMod">
+<option>회원선택</option>
+<option selected>회원</option>
+<option>점주</option>
+</select>
+</td>
+</tr>
+</div>
+
+
+
+</center>
+
+</div>
+
+<div name="회원가입 제출버튼">
+<tr align="center">
+<td class="pont" colspan="1"><h4>클릭!!</h4></td>
+<td colspan="3"><center><input type="submit" value="회원가입!!"></center></td>
+</tr>
+
+</div>
+</table>
+
+
+
+</form>
+</body>
+</html>

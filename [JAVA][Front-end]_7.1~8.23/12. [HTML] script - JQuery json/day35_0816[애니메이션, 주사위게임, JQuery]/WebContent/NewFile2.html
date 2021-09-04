@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게임-주사위 게임</title>
+<style type="text/css">
+*{
+	margin : 0;
+	padding : 0;
+}
+#area{
+	border : 1px solid black;
+	width : 500px;
+	height : 400px;
+	margin : 0 auto; /*그림을 중앙정렬하고 싶을때*/
+	position : relative;/*자식 css를 위해 설정*/ 
+	/*area로 붙었으면 해서 넣어줌(일부속성들이 틀어져서 넣어줌)*/
+}
+#ctrl{
+	position : absolute; /*com,me를 위해 만듬, 게임시작부분 상단을 고정해주기위함(안그러면 그림이 위로올라옴)*/
+	width : 100%;/*com,me를 위해 만듬*/
+	text-align : center;
+	background-color : lightblue; /*클릭효과*/
+	cursor: pointer; /*클릭 마우스커서 모양 바꾸기*/
+	height : 40px;
+	line-height : 40px; /*가운데정렬*/
+}
+#me{
+	position : relative;
+	list-style-type: none;
+	float : left;
+}
+#com{
+	position : relative; /* 이전 요소(주로 부모 요소)에 자연스럽게 연결하여 위치를 지정.*/
+	list-style-type: none;
+	float : right;
+}
+li{
+	position : absolute; /*	원하는 위치를 지정해 배치. */
+	top:40px; /*위에서부터 얼마나 떨어질건지(게임시작문구이후부터) */
+	width : 250px;
+	height : 360px;
+	visibility : hidden; /*쇼핑몰처럼 바를 클릭해야 보이는 현상을 구현하기 위해 우선은 모두 가려놓자.*/
+}
+#com li{
+	left : auto; /*float right 정렬 검색했는데 나온것 --> 좌우정렬*/
+	right : 0;
+}
+.rock {
+	background: url('image1/rock.png') no-repeat;
+}
+
+.scissors {
+	background: url('image1/scissors.png') no-repeat;
+}
+
+.paper {
+	background: url('image1/paper.png') no-repeat;
+}
+</style>
+</head>
+<body>
+<!-- 1. 마크업 중요!! -> 설계 -->
+	<div id="area">
+		<!-- 전체태그 : area -->
+		<div id="ctrl">게임 시작</div>
+		<ul id="me">
+			<li class="rock"></li>
+			<li class="scissors"></li>
+			<li class="paper"></li>
+		</ul>
+		<ul id="com">
+			<li class="rock"></li>
+			<li class="scissors"></li>
+			<li class="paper"></li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript">
+	var func; //setInterval 스코프로 꺼주기위함
+	
+	// 자원을 화면에 로드하게 되면 윈도우가 최상위,오브젝트로 존재하게 된다.
+	window.onload = function(){
+		init(); //최초생성 == 초기화 함수임을 예상할수있게됨
+		
+	}
+	function init(){
+		
+		//리스트를 싹 받아와서 묵이라는 친구를 볼수있게 만들거야 (초기 화면)
+		var lists = document.querySelectorAll('li'); //All을 사용했기 때문에 배열로받음
+		lists.forEach(function(list){//forEach는 원래있는 메서드 (정의메서드 아님)
+			//인자로는 기본제공되는 list활용
+			if(list.className=='rock'){ //묵이면 스타일중에 visibility를 볼수있게해줘
+				list.style.visibility = 'visible';
+			//hidden : 가림, visible : 다시보여줌
+			}
+			else{ //묵이 아니면 다시 가려줌
+				list.style.visibility = 'hidden';
+			}
+		}); 
+		
+		//게임 시작을 눌렀을때 묵찌빠 반복하다가 활성화된 종료버튼을 누르면 결과가 보일 수 있게 하려고 함.
+		// 	--> 내부에는 글자들이 바뀌어야한다. ==js선택자
+		//게임시작 버튼을 눌렀다면 == 게임 시작!
+		document.querySelector('#ctrl').onclick=function(){//클릭을하면 글자가 바뀜
+			//console.log(this); == <div id="ctrl">게임 시작</div>
+			if(this.firstChild.nodeValue == '게임 시작'){//div 첫자식이 게임시작
+				this.firstChild.nodeValue = '결과 보기!'; //게임 시작부분을 결과보기 문구로 체인지
+				this.style.backgroundColor = 'pink';
+				
+				game();
+			}
+			else{//이미 결과보기라면 (시작-결과를 반복하기 위함)
+				this.firstChild.nodeValue='게임 시작'; //게임시작으로 리셋
+				this.style.backgroundColor ='lightblue';
+				
+				stopGame();
+			}
+		}
+		function game(){ //게임메서드
+			func = setInterval(function(){
+			var randNum = Math.floor(Math.random()*3);
+			var lists = document.querySelectorAll('li'); //All을 사용했기 때문에 배열로받음
+			lists.forEach(function(list, index){//index를볼수있게끔 인자넣음 , forEach는 기존메서드
+			//querySelectall로 가져왔을때 
+			// index : me 묵 0, 찌 1, 빠 2, com 묵 3, 찌 4, 빠 5가 된다. == %3했을 때 값이 같다.
+				//인자로는 기본제공되는 list활용
+				if((index%3) == randNum){ //사용자 0 1 2 값과 랜덤값이 같다면
+					list.style.visibility = 'visible';
+				//hidden : 가림, visible : 다시보여줌
+				}
+				else{ 
+					list.style.visibility = 'hidden';
+				}
+			});
+			
+			},300); // 0.3초
+			
+		}
+		function stopGame(){ //게임중단 메서드 == 결과
+			clearInterval(func);
+			
+		//내껀 0 1 2, 컴퓨터 3 4 5 
+			var n1 = Math.floor(Math.random()*3); // me 0~2
+			var n2 = Math.floor(Math.random()*3) + 3; // com 3~5
+			var lists = document.querySelectorAll('li'); //All을 사용했기 때문에 배열로받음
+			
+			//결과저장 ->result메서드전달용
+			var r1;
+			var r2;
+			
+			lists.forEach(function(list, index){//index를볼수있게끔 인자넣음 , forEach는 기존메서드
+			//querySelectall로 가져왔을때 
+			// index : me 묵 0, 찌 1, 빠 2, com 묵 3, 찌 4, 빠 5가 된다. == %3했을 때 값이 같다.
+
+				// 값 넘겨줄려고  조건을 || 안쓰고 나눴다.
+				if(index == n1){ 
+					list.style.visibility = 'visible';
+					r1= list.className;
+				}
+				else if(index == n2){
+					list.style.visibility = 'visible';
+					r2= list.className;
+				}
+				else{ 
+					list.style.visibility = 'hidden';
+				}
+			});
+			showResult(r1, r2);
+		}
+		function showResult(me, com){//내꺼와 컴퓨터의 결과를 알아야함 -> stopGame
+			if(me==com){//무승부
+				alert('무승부입니다.');
+			}
+			else{//결과나뉨
+				switch(me){//만약에
+				case 'rock' ://가위를 냈으면
+					if(com=='scissors'){//컴퓨터가 보일때 승리
+						alert('승리!');
+					}
+					else{//아니면 패배
+						alert('패배...');
+					}
+					break;
+				case 'scissors': // 보를 냈으면
+					if(com=='paper'){//컴퓨터가 묵일때 승리
+						alert('승리!');
+					}
+					else{//아니면 패배
+						alert('패배...');
+					}
+					break;
+				case 'paper': // 바위를 냈으면
+					if(com=='rock'){//컴퓨터가 가위일때 승리
+						alert('승리!');
+					}
+					else{//아니면 패배
+						alert('패배...');
+					}
+					break;
+				}
+				
+			}
+		}
+	}
+	
+	
+	</script>
+	
+	
+	
+	
+	
+	
+</body>
+</html>

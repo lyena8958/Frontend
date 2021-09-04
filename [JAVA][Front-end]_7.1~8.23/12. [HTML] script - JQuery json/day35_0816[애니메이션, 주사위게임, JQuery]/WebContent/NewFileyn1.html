@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#circle{
+	position : absolute;
+	left : 100px; /*num이랑 맞춰줌 시작점*/
+	width: 100px; 
+	height : 100px;
+	border-radius : 50%;	
+	background-color : navy;
+	cursor : pointer; /*영역에 들어오면 커서모양이 바뀜*/
+}
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+
+<div id ="circle"></div>
+
+<script type="text/javascript">
+var func;
+var flag = false;
+var num = 100; // 시작점을 맞춰준다. -> 9라인
+//parseint('100px', 10) --> 100을 10진수로 바꿔줘
+
+	document.querySelector("#circle").onclick=function(){
+		var c =document.querySelector("#circle")
+	if(flag){// 멈춤
+		flag=false;
+		clearInterval(func);
+		c.style.backgroundColor = "navy"; //원래색상복귀
+	}
+	else{//움직임
+		flag=true;
+		func=setInterval(function(){
+			// this가아닌 c를 한 이유는 setInterval이 주관하고있어서 그렇다.
+			// 수행주최가 window에게 있기 때문에 창의 스타일을 찾아가기때문에 c로 활용해야한다.
+			c.style.backgroundColor='orange';
+			num += 5;
+			c.style.left = num + 'px';	
+		}, 500);
+	}
+}
+</script>
+</body>
+</html>

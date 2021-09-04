@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- HTML 실습 문제
+
+1. 파비콘 삽입
+2. form 태그
+	회원가입 폼
+	table 태그를 이용
+	팀프로젝트의 vo를 참고!
+
+3. 이미지를 등록, 해당 이미지 클릭시 회원가입(2번요소)으로 이동
+	a태그
+
+ -->
+<meta charset="UTF-8">
+<title>참치라이더 회원가입 창</title>
+<link rel = "icon" href ="image/tuna2.ico">
+
+<!-- 폰트 클래스 지정 -->
+<!-- 창 크기 지정 -->
+<style>
+	.pont1 {color:#7F7EFF; font-size:1.5em;}
+	
+	.size {width:20%; height:40px; text-align-last: center;}
+	.address {width:10%; height:40px; text-align-last: center;}
+</style>
+
+
+</head>
+<body>
+<form method="post">
+<hr>
+<br><br>
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+
+<!-- 이미지클릭 > 가입 창이동-->
+<a href = "#image">
+<center>
+<img src ="image/image.PNG">
+</center>
+</a>
+
+
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+
+<hr>
+<br><br><br> <!-- 줄정리 -->
+
+<!-- 제목 -->
+<a name="image"></a> <!-- 이미지클릭>이동한부분 -->
+		<div name="어플 제목">
+			<h1>
+				<span style="font-size: 3em; color: #5CD1E5;"><center>⫷⫸참치라이더⫷⫸
+			</h1>
+			</span></center>
+			<br>
+			<br>
+			<br>
+			<br>
+			<h2>
+				<center>참치라이더의 멤버가 되어주세요!
+			</h2>
+			</span>
+			</center>
+		</div>
+
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+<br><br><br> <!-- 줄정리 -->
+
+
+<!-- 아이디 입력 -->
+		<div name="아이디 입력">
+			<center><!-- 문구 -->
+			<h4 class="pont1">아이디</h4>
+
+				<!--[input] 아이디  -->
+				<input type="text" name="idinput"
+					style="text-align: center; width: 20%; height: 40px;" align="right"
+					required>
+			</center>
+		</div>
+
+		<br><br><br> <!-- 줄정리 -->
+
+<!-- 패스워드  입력-->
+		<div name="패스워드 입력">
+			<center> <!-- 문구 -->
+				<h4 class="pont1">패스워드</h4>
+				
+				<!--[input] 패스워드  -->
+				<input type="text" name="pwinput"
+					style="text-align: center; width: 20%; height: 40px;" align="right"
+					required>
+			</center>
+		</div>
+
+
+<br><br><br><br><br><br> <!-- 줄정리 -->
+
+<!-- 주소입력 -->
+		<div name="주소 입력" required>
+			<center>
+				<!-- 문구 -->
+				<h4 class="pont1">주소</h4>
+				<p align="center">도시/지역선택&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				상세주소입력</p>
+				
+				
+				<!-- 도 선택 -->
+				<select class="address" name="도시선택(시ㆍ도)">
+					<option>도시선택</option>
+					<option>서울특별시</option>
+					<option>경기도</option>
+					
+				<!-- 지역선택 -->
+				</select> <select class="address" name="지역선택">
+					<option>지역선택</option>
+					<option>강서구</option>
+					<option>양천구</option>
+					<option>구로구</option>
+					<option>강북구</option>
+					<option>종로구</option>
+					<option>강남구</option>
+					<option>서초구</option>
+					<option>송파구</option>
+					<option>수원시</option>
+					<option>화성시</option>
+					<option>오산시</option>
+					<option>용인시</option>
+					<option>안산시</option>
+				</select> <input type="text" name="addressinput"
+					style="text-align: center; width: 33%; height: 33px;" align="right"
+					required>
+			</center>
+		</div>
+
+		<br><br><br><br><br><br> <!-- 줄정리 -->
+
+<!-- 휴대폰 번호 입력 -->
+		<div name="휴대폰 번호 입력">
+		<center>
+		<h4 class="pont1">휴대폰 번호</h4>
+		<select>
+		<option >010</option>
+		</select> -
+		
+		<input type="text" style="width:3%";name="phontcenter" maxlength="4" required>
+		-
+		
+		<input type="text" style="width:3%"; name="phontcenter" maxlength="4" required>
+		</center>
+		</div>
+
+
+
+<br><br><br><br><br><br> <!-- 줄정리 -->
+
+
+<!-- 멤버선택 -->
+		<div name="회원 점주 선택">
+		<center><h4 class="pont1">회원선택</h4></center>
+			<table width="56%">
+				<!--[필수입력] 점주/소비자 선택-->
+				<tr align="right">
+					<td><select name="memberMod" class="size">
+							<option>회원선택</option>
+							<option selected>회원</option>
+							<option>점주</option>
+					</select></td>
+				</tr>
+			</table>
+		</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br> <!-- 줄정리 -->
+
+
+<!-- 회원가입 제출 -->
+		<div name="회원가입 제출버튼">
+			<center>
+				<tr colspan="5" align="center">
+					<td><input type="submit" value="회원가입!!"
+						style="width: 10%; height: 50px;" /></td>
+				</tr>
+			</center>
+		</div>
+
+
+
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!-- 줄정리 -->
+</form>
+</body>
+</html>

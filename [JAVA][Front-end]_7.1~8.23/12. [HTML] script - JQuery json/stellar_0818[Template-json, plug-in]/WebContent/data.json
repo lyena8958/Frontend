@@ -1,0 +1,10 @@
+[
+	{"item":"timoIcon", "imgFile":"tmIcon.png"},
+	{"item":"mushroom", "imgFile":"mushroom.ico"},
+	{"item":"dog_image1", "imgFile":"spring.jpg"},
+	{"item":"dog_image2", "imgFile":"spring2.jpg"},
+	{"item":"dog_image3", "imgFile":"spring3.jpg"},
+	{"item":"dog_image4", "imgFile":"spring4.jpg"},
+	{"item":"dog_image5", "imgFile":"spring5.jpg"},
+	{"item":"dog_image6", "imgFile":"spring6.jpg"}
+]

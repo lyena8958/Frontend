@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 상태바 위아래버전 -->
+    <meta charset="UTF-8">
+    <title>가로 메뉴 화면</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        h1{
+            text-align: center;
+            padding: 5px;
+        }
+        #gnb {
+            width: 600px;
+            margin: 0 auto;
+        }
+        #gnb:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #gnb .m {
+            float: left;
+            width: 120px;           
+            text-align: center;
+            position: relative;            
+        } 
+        #gnb .m > a {
+            display: block;
+            height: 40px;            
+            line-height: 40px;
+        }        
+        #gnb .m.on > a {
+            border-bottom: 4px solid lightgreen;
+            box-sizing: border-box;
+        }     
+        #gnb .m ul {
+            position: absolute;
+            left: 0;
+            top: 40px;            
+            width: 100%;
+            background: black;
+            display: none;
+        }        
+        #gnb .m ul li a {
+            display: block;
+            color: white;
+            padding: 5px;
+            border-bottom: 1px solid pink;
+        }
+        #gnb .m ul li:last-child a{
+            border: none;
+        }
+        #gnb .m ul li a:hover,
+        #gnb .m ul li a:active,
+        #gnb .m ul li a:focus {            
+            background: white;
+            color: black;
+        }
+        #visual {
+            background: url("image/spring.jpg") no-repeat center center;           
+            height: 300px;
+        }
+        #visual a{
+            display: block;
+            width: 1000px;
+            height: 300px;
+            margin: 0 auto;
+            text-indent: -99999%;
+            overflow: hidden;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script> // remove가 아닌 toggle로 하는게 더 효율적이다.
+        $(document).ready(function() {
+            $("#gnb .m").on("mouseenter focusin", function() {
+                $("ul", this).show();
+                $(this).siblings("li").find("ul").hide();
+                $(this).addClass("on").siblings("li").removeClass("on");                
+            }).on("mouseleave", function() {
+                $("#gnb ul").hide().add("#gnb .m").removeClass("on");                
+            });
+            $("*:not('#gnb a')").on("focus", function() {
+                $("#gnb ul").hide().add("#gnb .m").removeClass("on");
+            });
+        });
+    </script>
+</head>
+<body>    
+    <h1><a href="#">가로 메뉴 화면</a></h1>
+    <ul id="gnb"> <!-- global navigation bar -->
+        <li class="m"><a href="#">메뉴1</a>
+            <ul>
+                <li><a href="#">메뉴1_1</a></li>
+                <li><a href="#">메뉴1_2</a></li>
+                <li><a href="#">메뉴1_3</a></li>
+                <li><a href="#">메뉴1_4</a></li>
+            </ul>
+        </li>
+        <li class="m"><a href="#">메뉴2</a>
+            <ul>
+                <li><a href="#">메뉴2_1</a></li>
+                <li><a href="#">메뉴2_2</a></li>
+                <li><a href="#">메뉴2_3</a></li>
+                <li><a href="#">메뉴2_4</a></li>
+            </ul>
+        </li>
+        <li class="m"><a href="#">메뉴3</a>
+            <ul>
+                <li><a href="#">메뉴3_1</a></li>
+                <li><a href="#">메뉴3_2</a></li>
+                <li><a href="#">메뉴3_3</a></li>
+                <li><a href="#">메뉴3_4</a></li>
+            </ul>
+        </li>
+        <li class="m"><a href="#">메뉴4</a>
+            <ul>
+                <li><a href="#">메뉴4_1</a></li>
+                <li><a href="#">메뉴4_2</a></li>
+                <li><a href="#">메뉴4_3</a></li>
+                <li><a href="#">메뉴4_4</a></li>
+            </ul>
+        </li>
+        <li class="m"><a href="#">메뉴5</a>
+            <ul>
+                <li><a href="#">메뉴5_1</a></li>
+                <li><a href="#">메뉴5_2</a></li>
+                <li><a href="#">메뉴5_3</a></li>
+                <li><a href="#">메뉴5_4</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div id="visual"><a href="#">비주얼</a></div> <!-- 사진파트 -->
+</body>
+</html>

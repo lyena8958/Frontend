@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 상태바 -->
+    <title>메뉴 하단 효과</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            color: #000;
+            text-align: center;
+        }
+        a {
+            color: #999;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            transition-duration: 1s;
+        }
+        a.on{
+            color: #000;
+        }
+        li {
+            list-style: none;
+        }
+        #gnb {
+            display: inline-block;
+            position: relative;
+        }
+        #gnb ul li {
+            float: left;
+            height: 40px;
+            width:150px;
+            line-height: 40px;            
+        }
+        #gnb span {
+            display: block;
+            border-bottom: 2px solid red;
+            height: 40px;
+            width: 150px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var w = $("#gnb ul li").width();            
+            $("#gnb").append("<span></span>");
+            $("#gnb ul li").on("mouseenter focusin", function() {
+                var index = $(this).index(); // index() 메서드는 각 li의 index를 반환하는 메서드
+                console.log(index); // 각 li에 마우스를 오버하면 0, 1, 2, 3
+                $(this).find("a").addClass("on");
+                $(this).siblings().find("a").removeClass("on");
+                $("#gnb span").stop().animate({
+                    left: index * w // 0 * 150, 1 *  150, 2 * 150, 3 * 150
+                }, "fast", "swing");
+            });
+            $("#gnb ul li:eq(0)").trigger("mouseenter");           
+        });
+    </script>
+</head>
+<body>
+    <nav id="gnb">
+        <ul>
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+            <li><a href="#">메뉴4</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

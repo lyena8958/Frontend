@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습</title>
+<style type="text/css">
+	img{
+		border : 1px solid black;
+	}
+</style>
+</head>
+<body>
+<!-- 이렇게 만들었을때 -->
+<div class="container">
+	<img alt="이미지를 눌러보세요! ^오^bb" src ="image/mushroom.ico">
+</div>
+
+<script type="text/javascript">
+	// 이미지를 클릭했을때,
+	// 이미지가 바뀔수있도록!
+	//바뀔 이미지는 티모가 나오도록
+	
+
+   // 이미지를 클릭했을때,
+   // 이미지가 바뀔수있도록!
+   var img = document.querySelector('img');
+   img.onclick = function(){
+      alert('사진 변경!');
+      console.log(this.src); // 그림의 주소가 나타남
+      if(this.src == 'http://localhost:8080/day34_0812/image/mushroom.ico'){
+         this.src = 'image/tmIcon.png';
+      }
+      else if(this.src == 'http://localhost:8080/day34_0812/image/tmIcon.png'){
+         this.src = 'image/mushroom.ico';
+      }
+   }
+   
+
+</script>
+
+</body>
+</html>

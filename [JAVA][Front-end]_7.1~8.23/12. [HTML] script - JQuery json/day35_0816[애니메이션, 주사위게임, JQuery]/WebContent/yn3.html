@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js"></script>
+<style>
+boby, ul , li, header{
+	margin : 3px;
+	padding : 5px;
+}
+li{
+	list-style-type : none;
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#menu").css("border", "3px solid blue");
+	$("#menu").css("background", "lightblue");
+	//$("#menu li").css("border", "3px solid red");
+	var color = ["pink", "lightgreen", "lightorange", "beige", "coral", "yellow"];
+	$("#menu li").each(function(element){
+		var rand = Math.floor(Math.random()*6);
+		$(this).css("border", "3px solid red");
+		$(this).css("background", color[rand]);
+	});
+});
+
+
+</script>
+
+<ul id="menu">
+<header>메뉴</header>
+<li>상의</li>
+<li>하의</li>
+<li>신발</li>
+<li>가방</li>
+</ul>
+
+</body>
+</html>

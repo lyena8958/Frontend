@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+<!-- 여러번 사용되는거면 head안에사용, 단일은 바디안에사용 -->
+<script type="text/javascript"></script>
+
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	background-color: coral;
+}
+</style>
+<script type="text/javascript">
+	/*스크립트 입력, this의 속성이 몇개인지모르니 obj로 받는 것이다. == vo와같다*/
+	function changeColor(obj) {
+		obj.style.backgroundColor = 'green';
+	}
+	function changeImage(obj) {
+		obj.img.src = "image/사조참치_1.png";
+	}
+
+</script>
+</head>
+<body>
+
+	<!-- 예나 -->
+	<div onclick="changeImage(this)">
+		<img alt="이미지를 누르면 헬멧쓴 참치가 나와요!" src="image/그림2.png">
+	</div>
+	
+
+	<!-- 강사님 -->
+	<img id="photo" alt="버섯 아이콘을 누르면 티모가 나와요!" src="image/mushroom.ico">
+	<script type="text/javascript">
+		document.querySelector("#photo").onclick = function() {
+			this.src = "image/tmIcon.png";
+		}
+	</script>
+
+
+
+	<!-- 버튼을 눌렀을때 changeColor를 실행시키고싶다. 뭐하는 애인지 정의하는 것이 중요하다. -->
+	<!-- 인자(매개변수)로 줘야한다 ? this -->
+	<div id="box" onclick="changeColor(this)"></div>
+
+</body>
+</html>

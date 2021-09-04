@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js"></script>
+<style type="text/css">
+*{
+   margin: 3px;
+   padding: 2px;
+}
+li {
+   list-style-type: none;
+}
+div{
+   width: 30%;
+}
+</style>
+</head>
+<body>
+
+   <div id="content">
+      메뉴
+      <ul class="menu">
+         <li>상의</li>
+         <li>하의</li>
+         <li>신발</li>
+         <li>가방</li>
+      </ul>
+   </div>
+
+   <script type="text/javascript">
+   $(document).ready(function(){
+      $("#content").css("backgroundColor","lightblue");
+      $("li").each(function(){
+         $(this).css("border","1px solid red");
+      });
+   });
+   </script>
+
+</body>
+</html>

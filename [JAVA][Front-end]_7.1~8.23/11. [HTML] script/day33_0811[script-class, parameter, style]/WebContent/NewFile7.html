@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트</title>
+<style>
+div {
+	width: 50px;
+	heigth: 50px;
+}
+
+#d1 {
+	background-color: pink;
+}
+
+#d2 {
+	background-color: lightgreen;
+}
+
+#d3 {
+	background-color: lightblue;
+}
+
+#d4 {
+	background-color: coral;
+}
+</style>
+</head>
+<body>
+	<!-- 실습상 f로 함수이름을 정의했지만, 실제로는 명확하게 지어야한다. -->
+	<!-- 오버랑, 다운을 많이씀! -->
+	<div id="d1" onmouseover="changeColor(this)">마우스오버</div> <!-- 마우스에 다가가면 변함 -->
+	<div id="d2" onmousedown="changeColor(this)">마우스다운</div> <!--원클릭: 마우스로 눌렀을때 즉시 변함 -->
+	<div id="d3" onmouseup="changeColor(this)">마우스업</div> <!-- 눌렀을땐 반응없다가 떼면 변함 -->
+	<div id="d4" onmouseout="changeColor(this)">마우스아웃</div> <!-- 마우스로 들어갔다 나오면 변함 -->
+
+
+	<script type="text/javascript">
+		function changeColor(obj) {
+			obj.style.backgroundColor="red";
+		}
+	</script>
+
+
+</body>
+</html>

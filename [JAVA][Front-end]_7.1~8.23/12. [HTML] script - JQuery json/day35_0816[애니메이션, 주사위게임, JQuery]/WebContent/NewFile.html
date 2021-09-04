@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>포커스 체크</title>
+<script type="text/javascript">
+	window.onload = function() {
+//form이 submit이 된다면 -> form을 들고와야함 (이름부여 login)
+	var login = document.login; // form 내 모두 들고옴 18번의 login 
+		login.onsubmit=function(){ //form이 sumbit이 된다면 수행할 메서드
+	
+		if(!login.id.value){ // id가 입력되지않았다면(value이 없으면 false -> not사용)
+			alert('아이디를 입력해주세요!');		
+			login.id.focus(); //포커스==커서이동?
+			//return false을 안하면 새창을 로드하게됨
+			//새창을 뜨게해주는 것을 막게해줌 == return false;
+			return false; // 포커스가 가있는 상태로 화면을 유지
+		}
+		if(!login.pw.value){ // pw가 입력되지않았다면(value이 없으면 false -> not사용)
+			alert('비밀번호를 입력해주세요!');		
+			login.pw.focus(); //포커스==커서이동?
+			return false; // 포커스가 가있는 상태로 화면을 유지
+		}
+		
+	}
+	}
+</script>
+</head>
+<body>
+	<form method="post" name="login" id="login"><!-- 현업에서는 id와 name을 모든 태그에 달아준다. -->
+		<table border="1">
+			<tr>
+				<td>ID</td>
+				<!-- required 해당 기능은 프론트개발자에게 맡기기 때문에   안정성이 좋지않다.-->
+				<td><input type="text" name="id" id="id"></td>
+			</tr>
+			<tr>
+				<td>PW</td>
+				<td><input type="password" name="pw" id="pw"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="로그인하기"></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사진 갤러리형 출력</title>
+<script src="jquery-3.6.0.min.js"></script>
+<style type="text/css">
+	*{
+		margin : 0;
+		padding : 0;
+	}
+	#container{
+		width : 250px;
+	}
+	.page, .page_n{
+		margin : 10px;
+	}
+	#container .page button{ /*갤러리형 버튼*/
+		border : 1px solid red;
+		background : pink;
+		width : 20px;
+		height : 20px;
+		overflow : hidden; /*버튼에 글자가 길어서 넘치다면 틀이 틀어지는걸 방지한다면 hidden으로 가릴수있다.*/
+		
+	}
+	#container .photo {
+		width : 250px;
+		height : 250px;
+		border : 1px solid black;
+		overflow : hidden;/*사진을 틀에 뚫고 나오는 사진은 가림*/
+	}
+	#container .photo img{
+		width : 250px;
+		height : 250px;
+	}
+</style>
+<script type="text/javascript">
+ 	$(document).ready(function(){
+ 		var totalNum = $(".photo > div").length; //photo안에 있는 이미지 개수를 갖고옴
+ 		var cNum=1;
+ 		$(".page_n > span:first").text(cNum); //page_n class안에 첫번째span
+ 		$(".page_n > span:last").text(totalNum);
+ 		$(".btn1").click(function(){// < 버튼
+ 			cNum--;
+ 			if(cNum < 1){ // 페이지수가 0아래면
+ 				cNum = totalNum; // 1보다아래면 3페이지로 돌아감
+ 			}
+ 			$(".page_n > span:first").text(cNum); // 버튼을 눌렀을때 다시 활성화해줌
+ 			$(".photo div:last").insertBefore(".photo div:first"); // 마지막 포토를 첫번째 포토 앞에
+ 		});
+ 		$(".btn2").click(function(){// > 버튼
+ 			cNum++;
+ 			if(cNum > totalNum){
+ 				cNum = 1;
+ 			}
+ 			$(".page_n > span:first").text(cNum); // 버튼을 눌렀을때 다시 활성화해줌
+ 			//둘다 first로 적용한 이유는 last는 전체페이지수==고정이기때문이고,
+ 			// 이동되는 것은 first만 이기 때문에 둘다 first span을 해준 것이다.
+ 			
+ 			 $(".photo div:first").insertAfter(".photo div:last"); // 첫번째 포토를 마지막 포토 뒤에
+ 		});
+ 	});
+
+</script>
+</head>
+<body>
+
+<div id="container"> <!-- container == 전체페이지를 의미함 -->
+	<div class="page">		<!-- &lt <, &gt > -->
+		 <!-- <span>현페이지</> / <span>전체페이지수</> -->
+		<span class="page_n"> 
+			<span></span> / <span></span> 
+		</span>
+		<button class="btn1">&lt; dad</button>
+		<button class="btn2">&gt;</button>
+	</div>
+	<div class="photo">
+		<div><image alt="첫번째 사진_버섯" src="image/mushroom.ico"></div>
+		<div><image alt="두번째 사진_티모아이콘" src="image/tmIcon.png"></div>
+		<div><image alt="세번째 사진_봄이" src="image/spring.jpg"></div>
+	</div>
+
+
+</div>
+
+</body>
+</html>

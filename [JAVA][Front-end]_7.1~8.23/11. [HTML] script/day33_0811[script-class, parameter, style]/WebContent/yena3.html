@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+li{
+	list-style-type : none;
+	display : inline;
+	padding : 10px;
+}
+#main{
+	background: lightpink;
+	text-align : center;
+	margin: 50px;
+	
+}
+
+</style>
+</head>
+<body>
+<div id="main">
+<ul>
+	<li class="fcChange">상의</li>
+	<li class="fcChange">하의</li>
+	<li class="fcChange">신발</li>
+	<li class="fcChange">가방</li>
+</ul>
+</div>
+<script type="text/javascript">
+	
+	    document.querySelectorAll('.fcChange').onclick=function(){
+		this.style.color = "white";
+		this.style.fontSize  = "30px";
+	}
+	    var items = querySelectorAll('.fcChange');
+	console.log(items);
+</script>
+
+
+
+</body>
+</html>

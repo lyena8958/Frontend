@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>요소 선택하기</title>
+<style>
+	div{
+		width: 100px;
+		height: 100px;
+		background-color: coral;
+	}
+</style>
+</head>
+<body>
+
+<!-- 간단하게 다른 요소를 처리해보자! -->
+<div class="d1"></div>
+<div class="d2"></div>
+
+<script type="text/javascript">
+
+	// 콜백함수
+	// ==트리거 발동 --리스너--> 이벤트를 수행함
+
+	//document 최상위페이지, 선택할거야 d1을, onclick를 했을 때 함수를 등록해줘
+	document.querySelector('.d1').onclick=function(){
+		this.style.backgroundColor="aqua";
+	}
+	
+								// onmouseout==마우스가 나갔을 때
+	document.querySelector('.d2').onmouseout=function(){
+		this.style.backgroundColor="gray";
+	}
+
+</script>
+</body>
+</html>

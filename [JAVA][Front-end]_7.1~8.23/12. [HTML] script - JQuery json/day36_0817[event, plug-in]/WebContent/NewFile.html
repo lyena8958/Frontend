@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아코디언 액션(접었다폈다)</title>
+<script src="jquery-3.6.0.min.js"></script>
+<style>
+	*{
+		margin : 0;
+		padding : 0;
+	}
+	li{
+		list-style : none; /*list-style-type과 비슷하게 스타일을 없애줌*/
+	}
+	a{
+		text-decoration : none;
+		color : black;
+		font-weight : bold;
+	}
+	#menu{
+		position : absolute;/*메뉴만 정확히 보기위해 다른요소들과 겹치지않게 넣음*/
+		width : 30%;
+		height : 100%;
+		background : darkgreen;
+	}
+	#menu a {/*상위애들이 포함되어 있는 a태그*/
+	/*a태그는 자기 구역만 해당되는 부분이 있어 블록으로 한줄 전체를 스타일을 변경해줌*/
+		display : block;
+		background : lightgreen;
+		border-top : 2px solid orange; /*쇼핑몰에서는 보더를 양옆을 따로지정해주면 깔끔해서 선호*/
+		border-bottom : 2px solid orange;
+	}
+	#menu a.on{
+		color : red;
+	}
+	#menu li ul{ /* 소분류는 일반적인 상황에서는 보이지 않아야 한다. */
+		display : none;
+	}
+	/*클래스까지 디테일하므로 40라인의 우선순위가 더 높다*/
+	#menu li ul.on{ /*소분류는 클릭했을 때 보여야한다.*/
+		display : block; /*현재 a태그에서 블록으로 되어있어 폼을 맞추기 위함*/ 
+	}
+	#menu ul a{
+		background : lightblue;
+		font-size : 10px;
+	}
+	/*hidden : 자신의 공간을 차지하면서 내용은 숨김
+	  none : 공간과 내용을 모두 숨김
+	*/
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){// 무언가가(document) 적재되었고 준비가되었을때
+		$("#menu a.m").click(function(){//어떤애를(#menu a.m) 클릭한다면 수행할거야
+			//add와 remove를 하는 것이 아니라, 버튼형으로많이쓴다고 함 == toggleClass
+			
+			//내가 선택한 친구들의 뒷요소에 on(내가정한 클래스명)이라는 애를 추가
+			$(this).next().addBack().toggleClass("on"); // 내가 쿡누른애 == this
+		}); 
+		
+		
+	}); 
+</script>
+</head>
+<body>
+
+	<!-- 아코디언 액션 -->
+	<!-- id와 class을 정의했다 == 구조를 기술(마크업) 했다. -->
+	<ul id="menu">
+		<li><a href="#" class="m">상의</a>
+			<ul><!-- 소분류는 일반적인 상황에서는 보이지 않아야 한다. -->
+				<li><a href="#">긴팔티</a></li>
+				<li><a href="#">반팔티</a></li>
+				<li><a href="#">가디건</a></li>
+			</ul>
+		</li>
+		<li><a href="#" class="m">하의</a>
+			<ul>
+				<li><a href="#">청바지</a></li>
+				<li><a href="#">반바지</a></li>
+				<li><a href="#">수면바지</a></li>
+			</ul>
+		</li>
+		<li><a href="#" class="m">신발</a>
+			<ul>
+				<li><a href="#">운동화</a></li>
+				<li><a href="#">구두</a></li>
+				<li><a href="#">슬리퍼</a></li>
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>

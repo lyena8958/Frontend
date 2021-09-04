@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- BOM -->
+<title>window</title>
+<style>
+	button{
+		color : black;
+		background-color : lightblue;
+	}
+	button:hover{
+		color : white;
+		background-color : blue;
+	}
+</style>
+</head>
+<body>
+
+<button type="button">새 창 열기</button> <!-- 여는 것 -->
+<button type="button">새 창 닫기</button> <!-- 닫는 것: 실무에선 잘 안씀 -->
+
+
+<script type="text/javascript">
+	//두 버튼이 있으니 All로해주자 -> 요소가 여러개니 배열로 저장이 된 것
+	var btn = document.querySelectorAll('button'); 
+	btn[0].addEventListener('click', openNewWindow); // on이없고 함수가있으니까 함수정의필요
+	
+	var win;
+	function openNewWindow(){
+	// 이름을 붙여줄거다 win
+		// 윈도우 오픈으로 창을 열자 (계산할때나 장바구니완료 상태창뜨는 것처럼)
+		win = window.open('','','width=300,height=300'); // 첫,두번째는 다루지않고 크기만 지정
+		// window.open( URL, name [ , specs ] [ , replace ] ) , specs 많이 씀
+		// 참고 : https://iamawebdeveloper.tistory.com/46
+		
+		//win = window.open();의 인자로 newWindow.html 페이지를 전달하여 오픈할 수 있음
+		
+		//창이 뜬 화면에 글을써주겠다 > 내가 만든 새창!
+		win.document.write('<h1>내가 만든 새 창!</h1>')
+	}
+	
+	// 한스타일로 하나 실습중이라 따로구현했음 
+	btn[1].addEventListener('click', function(){
+		win.close();
+	}) // ;생략됨
+	
+</script>
+
+</body>
+</html>

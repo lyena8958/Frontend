@@ -1,0 +1,15 @@
+@charset "UTF-8";
+*{
+	margin: 1px;
+	padding: 0;
+}
+textarea{
+	resize: none;
+}
+.bgcolorP{
+	background-color: pink;
+}
+.fontStyle{
+	font-style: italic;
+	color: hotpink;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>키보드 이벤트</title>
+<style>
+input{
+	width: 40%;
+	padding: 10px;
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<!--yena2로폴더명바꾸자 -->
+
+<!-- 새로고침을 막아야하는 페이지가 필요할 때 / 취소나변경 xxx //keyCode대신 F5관련 코드가 있음 -->
+<!-- onkeydown을 많이사용 -->
+<input type="text" onkeydown="show(event)">
+
+<br><br><br><br><br><br>
+<input type="text" placeholder="검색어를 입력하고 엔터를 눌러주세요." onkeydown="end(event)" >
+
+<script type="text/javascript">
+	function show(event){
+		console.log("키보드눌림 : " + event.keyCode);
+	}
+	
+	function end(event){
+		if(event.keyCode == 13){
+			console.log("엔터입력되어 종료됩니다.");
+			console.log(event.targer.value); // js event 속성
+			return;
+		}
+	}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

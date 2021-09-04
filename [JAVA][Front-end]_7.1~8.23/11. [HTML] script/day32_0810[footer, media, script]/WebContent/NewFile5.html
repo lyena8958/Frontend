@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- Script 변수 선언 자료형 식별자 이름 규칙 -->
+<script type="text/javascript">
+
+	var a ='String'; // 변수
+	var b = 123; //실수포함 123.4 Number
+	var c = true;
+	var d; // undefined 값을 모름 or 아직 할당되지않음을 의미
+	var e = null;
+	var f = [1, 2, 3]; // Object(2개 이상값) - 배열도 오브젝트이다
+	var g = {명령: 'select', 값: 'movie'}; //Object, 영화를 검색할래 
+	// 자료형 var 변수명 = 값;
+	
+	
+	
+	// html화면은 도큐먼트의 Elements로 write하는 부분이라 console로 나오지않고 f12->console로 해야보인다.
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	console.log(d);
+	console.log(e);
+	console.log(f);
+	console.log(g);
+	
+	// Srtring Number
+	// 1234 + 5 전화번호인데 넘버랑 더하게 되면
+	// 1239 번호로 저장되면 오류..
+	//			↓
+	// typeof : 자료형 타입을 알려줌
+	// isNaN() : not a number - 숫자가 아니니?
+	console.log(typeof f); // object
+	console.log(isNaN(b)); // false
+	console.log(isNaN('1234')); // false 숫자로 변환이 될 수있는걸로 인지해서 나오는것
+	console.log(isNaN('문자')); // true
+	
+	
+	// 전역 vs 지역 -> 차이:scope
+	var i = 123; //전역변수
+	function func(){
+		var i = 321; //지역변수
+		console.log(i); // 321
+	}// 함수 정의, 선언
+	func(); //함수 호출
+	console.log(i); // 123
+	
+	var v = prompt('출력되는 문구');
+	console.log(v);
+	
+	// 연산자
+	// 제어문
+	// 배열 : []를활용 - 잘안씀
+	//--------------------까지는 자바와 똑같다.
+	
+</script>
+
+
+</body>
+</html>

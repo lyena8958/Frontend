@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax 실습 이미지데이터 받아오기</title>
+<style>
+.container{
+	width : 100%;
+}
+img {
+	width : 50%;
+	
+}
+
+</style>
+<script src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+	$.ajax({
+		type : "GET",
+		url : "data2.json",
+		dataType : "json",
+		success : function(data){
+			var str = "";
+			$.each(data, function(index, obj){
+				 	str+="<img src='img/";
+		            str+=obj.imgFile;
+		            str+="' alt='";
+		            str+=obj.item;
+		            str+="'>";
+		            
+		            str+="<br>";
+		            
+		            str+="<a href='";
+		            str+=obj.link;
+		            str+="'>";
+		            str+=obj.item;
+		            str+="</a>";
+		            
+		            str+="<br>";
+		            str+="<hr>";
+
+				/*s
+				str += "<a href= '"+obj.link+"'>";
+				str += + "<img src = 'img/"+obj.imgFile+"'>";
+				str += "</a>";*/  
+				
+			});
+			$(".product").append(str);	
+		},
+		error : function(){
+			alert("에러발생");
+		}
+		
+	});
+
+</script>
+</head>
+<body>
+
+<!-- 1. 쇼핑몰처럼 상품소개 페이지를 제작해보자! -->
+<!-- 2. <div>를 활용하여 사진이 추가될 공간을 만들어주세요 -->
+<!-- 3. json 사진데이터를 만들어주세요 -->
+<!-- 4. 단, 3에서 추가할 실제사진데이터는 img폴더에 있어야 합니다. -->
+<!-- 5. 화면에 사진들이 잘 나오는지 확인 -->
+
+
+<div id="container"> <!-- 컨테이너==위에 헤더와 밑에 footer가 들어갈것을 암시 -->
+	<h1>쇼핑몰 상품 소개 페이지</h1>
+	<div id="visual"> <!-- 상품이나 소개같은경우 id를 비쥬얼로 많이쓴다. -->
+		<div class="product"></div>
+	</div>
+
+</div>
+
+</body>
+</html>

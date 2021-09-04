@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax로 JSP(동적페이지) 서비스하기</title>
+<script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	$.ajax({
+		type : "post",
+		url : "NewFile.jsp", // 파일명이 같아도 확장자가 다르면 구분 가능
+		dataType : "html", //화면에 서비스하기 때문에 jsp가 아닌 html
+		
+		success : function(result){//데이터는 구조를 모두 가져옴
+			$("#content").html(result); //html로 데이터를 받아와서 화면에 보여줄거야 
+		}
+		
+	});
+	
+</script>
+<div id ="content"></div>
+
+
+</body>
+</html>

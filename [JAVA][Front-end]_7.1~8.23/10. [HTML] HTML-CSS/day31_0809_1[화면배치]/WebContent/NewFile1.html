@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>화면배치2</title>
+<style type="text/css">
+/*기사사진 오른쪽배치*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.tm {
+	float: right; /*기사제목을 오른쪽에 오게해주는 역할*/
+	margin: 5px;
+	padding: 2px;
+	border: 1px solid black;
+	font-size: 5px; /*보통은 기사글보다 설명란 글씨가 작으니 해당모습 구현*/
+}
+
+p { /*클래스를 하는게 보편적이지만 일단 사용*/
+	text-align: justity; /*글의 양쪽정렬*/
+}
+</style>
+</head>
+<body>
+
+	<!-- 기사 모습을 구현 -->
+
+	<div class="tm">
+		<!-- 이미지는 항상 웹접근표준성지침을 준수해야한다. -->
+		<img alt="티모아이콘 이미지" src="image/사조참치_2.png">
+		<p>티모가 엄지를 보여주고 있다.</p>
+	</div>
+	<!-- 엇 둘이 겹치는 부분이네? > div사용(묶어주면 좋다) -->
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+		eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+		minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+		aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+		culpa qui officia deserunt mollit anim id est laborum.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+		eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+		minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+		aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+		culpa qui officia deserunt mollit anim id est laborum.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+		eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+		minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+		aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+		culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>다이스 게임</title>
+<style>
+body, div, ul, li{
+	margin : 0;
+	padding : 0;
+}
+#area {
+	border: 3px solid lightgray;
+	width: 1000px;
+	height: 400px;
+	margin: 0 auto;
+	position : relatuive;
+}
+#ctrl{
+	cursor: pointer; /*클릭 마우스커서 모양 바꾸기*/
+
+	position : absolute;
+	width : 1000px;
+	height : 40px;
+	line-height : 40px;
+	background-color : #B5B2FF;
+	text-align : center;
+}
+li{
+	position : absolute; /*	원하는 위치를 지정해 배치. */
+	top:40px; /*위에서부터 얼마나 떨어질건지(게임시작문구이후부터) */
+	width : 500px;
+	height : 360px;
+	visibility : hidden; /*쇼핑몰처럼 바를 클릭해야 보이는 현상을 구현하기 위해 우선은 모두 가려놓자.*/
+	list-style-type : none;
+}
+#user{
+	float : left;
+	position : relative;
+}
+
+#com{
+	float : right;
+	position : relative;
+}
+#com li{
+	left : auto;
+	right : 0;
+}
+#user, #com{
+	margin-top : 10%;
+}
+#user{
+	margin-left : 30%;
+}
+#com{
+	margin-right : -6%;
+}
+.one{
+	background : url('image2/dice-1.png') no-repeat;
+}
+.two{
+	background : url('image2/dice-2.png') no-repeat;
+}
+.three{
+	background : url('image2/dice-3.png') no-repeat;
+}
+.four{
+	background : url('image2/dice-4.png') no-repeat;
+}
+.five{
+	background : url('image2/dice-5.png') no-repeat;
+}
+.six{
+	background : url('image2/dice-6.png') no-repeat;
+}
+</style>
+</head>
+<body>
+
+	<div id="area">
+		<div id="ctrl">🌞 START 🌞</div>
+
+			<ul id="user">
+				<li class="one"></li>
+				<li class="two"></li>
+				<li class="three"></li>
+				<li class="four"></li> 
+				<li class="five"></li>
+				<li class="six"></li>
+			</ul>
+
+			<ul id="com">
+				<li class="one"></li>
+				<li class="two"></li>
+				<li class="three"></li>
+				<li class="four"></li>
+				<li class="five"></li>
+				<li class="six"></li>
+			</ul>
+
+	</div>
+	<script type="text/javascript">
+
+	var func;
+	
+	window.onload = function(){
+		init();
+	}
+	/* 
+	for(var i = 0; i < result[0].length; i++){
+		console.log(result[0][i]);
+		console.log(result[1][i]);
+	} */
+	function init(){
+		// 초기화면 설정
+		var lists = document.querySelectorAll('li'); 
+		console.log(lists);
+		lists.forEach(function(list){
+			if(list.className=='one'){ // 주사위 1번만 보여주고
+				list.style.visibility = 'visible';
+			}
+			else{// 남은 이미지들은 가림(hidden)
+				list.style.visibility = 'hidden';
+			}
+		});
+		
+		// 시작/종료 누르면 상태바 디자인 변경
+		document.querySelector('#ctrl').onclick=function(){
+			console.log(this);
+			//게임시작 모드 디자인변환
+			if(this.firstChild.nodeValue == '🌞 START 🌞'){//START를 누르면 결과보기 상태바로 변경
+				this.firstChild.nodeValue = ' Result? 🔎';
+				this.style.backgroundColor = 'lightgray';
+				
+				game(); // 
+			}
+			else {//원상복구 // 결과보기를 누르면 다시 초기상태(시작 상태바)로 변경
+				this.firstChild.nodeValue = '🌞 START 🌞'
+				this.style.backgroundColor = '#B5B2FF';
+				
+				stopGame();
+			}
+		}
+
+		//게임시작 (이미지 변환모션 추가)
+		function game() {
+			func = setInterval(function(){
+			var randNum = Math.floor(Math.random()*6);
+			var lists = document.querySelectorAll('li');
+			
+			lists.forEach(function(list, index){
+				if((index%6)==randNum){ //사용자 
+					list.style.visibility = 'visible';
+				}
+				else{//컴퓨터
+					list.style.visibility = 'hidden';
+				}
+			});
+			}, 100); // 0.1초
+		}
+
+		//게임종료 == 결과반환
+		function stopGame(){
+			clearInterval(func);
+			
+			var lists = document.querySelectorAll('li'); //All을 사용했기 때문에 배열로받음
+			
+			// lists인덱스 기준 : userRand 0~5, comRand 6~11
+			var userRand = Math.floor(Math.random()*6); // 유저의 결과값 
+			var comRand = Math.floor(Math.random()*6)+6; // 컴퓨터의 결과값
+			
+			// 유저, 컴퓨터 결과저장변수
+			var userRes = userRand;
+			var comRes = comRand-6;
+			
+			// 주사위결과 이미지 고정
+			lists.forEach(function(list, index){//list: 객체(데이터), index(list의 위치) 
+				
+				if(index == userRand){ // 난수로 돌린 유저의 결과값이 → 객체index와 같다면
+					list.style.visibility = 'visible'; // 해당 이미지를 표시함
+				}
+				else if(index == comRand){ // 난수로 돌린 컴퓨터의 결과값이 → 객체index와 같다면
+					list.style.visibility = 'visible'; // 해당 이미지를 표시함
+				}
+				else{// 없는 결과의 이미지는 모두 가림(hidden)
+					list.style.visibility = 'hidden';
+				}
+			});
+			// 사용자 안내를 위한 결과를 화면에 띄움(무승부 or 승리 or 패배)
+			showResult(userRes, comRes);
+		}
+		
+		// 사용자 안내 결과창
+	function showResult(user, com) { 
+			if (user == com) {
+				alert('!!무 승 부!!');
+			}
+			else {
+				if (user > com) {//사용자보다 컴퓨터값이 낮다면 승리
+					alert('✨승리😎✨ ');
+				} else {// 컴퓨터 값이 높으면 패배
+					alert('🤦‍♀️🤦‍♀️🤦‍♀️...패배...🤦‍♂️🤦‍♂️🤦‍♂️');
+				}
+			}//else
+				
+		}//showResult
+
+	}
+</script>
+
+</body>
+</html>

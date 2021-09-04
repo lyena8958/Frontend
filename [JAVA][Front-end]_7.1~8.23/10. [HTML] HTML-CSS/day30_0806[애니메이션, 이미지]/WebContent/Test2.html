@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입 창</title>
+<style>
+.agree {
+   width: 500px;
+   height: 150px;
+   border: 1px solid black;
+   overflow-y: scroll;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+table {
+   margin-right: auto;
+   margin-left: auto;
+}
+</style>
+</head>
+<body>
+
+
+
+
+
+   <form method="post">
+      <!-- 뷰에서 컨트롤러에 요청을 보낸다. action="control.jsp" -->
+      <table border="1">
+         <tr>
+            <td>아이디&nbsp;&nbsp;&nbsp;입력</td>
+            <td><input type="text"></td>
+         </tr>
+         <tr>
+            <td>비밀번호입력</td>
+            <td><input type="password"></td>
+         </tr>
+         <tr>
+            <td>비밀번호확인</td>
+            <td><input type="password"></td>
+         </tr>
+         <tr>
+            <td colspan="2" align="right"><input type="submit"
+               value="회원가입하기"></td>
+         </tr>
+      </table>
+
+
+      <center>
+         <h2>회원가입 이용약관</h2>
+      </center>
+      <p class="agree">
+         제 1조 Lorem ipsum dolor sit amet<br>ⅰ . consectetur adipisicing
+         elit, sed<br>ⅱ. consectetur adipisicing elit, sed <br>ⅲ.
+         consectetur adipisicing elit, sed <br>ⅳ. consectetur adipisicing
+         elit, sed nostrud <br><br><br><br><br><br><br>exercitation ullamco laboris nisi ut aliquip ex ea
+         commodo consequat. Duis aute irure dolor in reprehenderit in
+         voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+         officia deserunt mollit anim id est laborum.
+      </p>
+</body>
+</html>

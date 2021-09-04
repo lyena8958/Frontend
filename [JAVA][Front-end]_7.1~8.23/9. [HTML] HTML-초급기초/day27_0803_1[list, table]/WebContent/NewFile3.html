@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"><!-- 쌍 따옴표를 안써도 무관하나, 쓰는걸 권유 -->
+<title>시맨틱 태그</title>
+</head>
+<body>
+
+	<p>시맨틱 태그(Semantic.의미론적인) : 명확한 의미가 담겨져있는 요소를 의미 button, header, nav 등</p>
+	<p>: 구조를 명세할때에는 "스크린리더"를 생각해보자!</p>
+	<!-- 설계 순서에 따라 스크린리더의 안내절차가 다르다. -->
+	<p>논리적인 "순서"를 생각해보자!</p>
+
+	<h2>인터랙티브(Interactive)</h2>
+	<a href="NewFile1.html">내부링크</a>
+	<button>버튼</button>
+
+	<!-- select:옵션과 함께 사용 -->
+	<select name="gender">
+		<!-- //성별 택일  //select name="gender"-->
+		<option>성별</option>
+		<option>남자</option>
+		<option selected>여자</option>
+		<!-- selected 빈도가 많은 것을 가장 먼저 띄워줄수있다. -->
+	</select>
+
+	<input type="text">
+	<!-- ex 검색창 -->
+
+	<br>
+	<!-- 띄어쓰기 -->
+	<hr>
+	<!-- 가로선 -->
+	<br>
+	<h2>from 태그</h2>
+	<p>사용자의 입력처리를 담당</p>
+
+	<!-- 폼태그  의미-->
+	<p>: 사용자가 입력한 값을 관련된 처리 프로그램으로 전송할 때 사용</p>
+
+
+
+
+	<!-- method= 하면 값들이 뜨는데 // get = default //대부분 post방식을 쓴다. -->
+	<!-- form과 input은 짝을지어 사용함 -->
+	<form method="post">
+	<input type="text" required>  <!-- // 가장 많이 쓰임!! 배송지 /이름/이메일 입력 //required: 꼭 입력해야하는 부분(id/pw)-->
+	<input type="date">
+	<input type="file">
+	<input type="password">
+	
+	<input type="checkbox" name="movie">로맨스 <!-- 넷플릭스 요소 선택  -->
+	<input type="checkbox" name="movie">액션
+	<input type="checkbox" name="movie">판타지
+	<input type="checkbox" name="movie">사극
+	
+	<input type="radio" name="check"> 예 <!-- 당신은 서비스를 얼마나 만족하셨습니까? 일수도 있고 아닐수도있고 (성별) -->
+	<input type="radio" name="check"> 아니요
+	<!-- 같은 name을 가지면 택일을 하게끔 할 수 있다!! (ex) 광고성 수신동의) -->
+	
+	<input type="range">
+	<input type="reset" value="RESET"> <!-- 입력한 값 초기화 -->
+	<input type="submit" value="회원가입하기"> <!-- 제출! -->
+
+
+	<p>get: URL에 정보를 저장하여 전송, 보안에 취약 (방식이 간단하기 때문에 속도는 빠른감이있다.)</p>
+	<!-- 예나 필기 get- 웹툰에서 유료화를 넣으면 마지막화로 이동하는 것 (url에 링크를 데이터를 놓고돌아다니는 것) -->
+
+	<p>post: 전송헤더에 정보를 저장하여전송, 보안에 유리</p>
+	<!-- post: 로그인을 하면 로그인 된 화면으로 이동되는 것  ==간단하게 보낼 때 -->
+
+	</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input {
+	width: 75%;
+}
+
+li {
+	border: 1px solid black;
+	margin: 3px;
+}
+</style>
+</head>
+<body>
+
+	<input type="text" placeholder="내용을 입력해보세요. 그리고 엔터!">
+	<ul id="menu">
+		<li>메뉴 목록</li>
+	</ul>
+
+	<script>
+	//검색기록 : 브라우저(로컬정보) vs 사용자(서버정보)
+	// 주소에서 가게들이 나타내는 것중에 해당되는 데이터만 보여주는 기능과 비슷하다고 볼수있다.
+	
+		//19번줄이 data에 들어가는 것	
+		// 만약에 li가 있는데 모두 적용하고싶으면 querySelectorAll활용할수있다. 하나는 id활용해서 all뺀 요소로
+		var data=document.querySelector('input'); //querySelector:요소이름을 받아옴
+		
+		data.onkeydown=function(event){
+			// 항상 수행되면 안되고 엔터를(13) 누를때만 수행
+			if(event.keyCode == 13){  // console.log(event.keyCode); -> 키를눌러서 키번호를 알수있음				
+				var list=document.createElement('li');
+				var txt=document.createTextNode(this.value); // 내가 쓴것!==this.value 추가해줘
+				list.appendChild(txt);// li를 넣겟다 자식(txt)를
+				this.value="";
+				document.getElementById('menu').appendChild(list); //==ul에게 생성해줌(ul에게 id가 정의되어있으니)
+				// getElementById, tagName
+				// id : #으로 받아오는 것 , tagName : class
+			}
+
+		}
+	</script>
+
+</body>
+</html>

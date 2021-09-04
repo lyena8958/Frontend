@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 - 부모,자식 요소 영향 관계</title>
+<script src="jquery-3.6.0.min.js"></script>
+<style>
+	*{
+		margin : 2px;
+		padding : 10px;
+	}
+	.inner{
+		background : orange;
+	}
+	.outer{
+		background : lightgreen;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".wrap1").mouseover(function(){//부모와 자식을 커서로 대면 반응
+			//부모 요소에게 이벤트 적용시 자식에게도 적용됨
+			$(".result").append("<strong>마우스오버</strong>"); // strong 굵은글씨
+		});
+		$(".wrap2").mouseenter(function(){//부모만 커서로 대면 반응
+			$(".result").append("<em>마우스엔터</em>"); //em : 삐딱한글씨
+		});
+	})
+</script>
+</head>
+<body>
+<!-- div -ul - li - a >> 에서 이벤트 적용을 했을 때 안까지 다 적용이 됐을수도있다. == 버블링현상? -->
+<!-- 의도와 맞지않게 돌아가는 상황을 현재 이 HTML에서 구현한 것 - 나중에 참고하면 좋을 듯 -->
+<div class="wrap1 outer">
+	<div class="inner">마우스오버</div>
+</div>
+<div class="wrap2 outer">
+	<div class="inner">마우스엔터</div>
+</div>
+<div class="result"></div>
+
+</body>
+</html>

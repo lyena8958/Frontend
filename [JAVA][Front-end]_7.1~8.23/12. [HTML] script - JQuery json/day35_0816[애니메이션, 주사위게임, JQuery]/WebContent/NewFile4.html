@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//div로 이루어져있는 애들을데려옴(querySelectorAll한것처럼)
+		//each는 foreach라 반복문이다.
+		$("div").each(function(index, element){ //All을 통한 객체는 어떻게 받아오는지
+			console.log(index + " : "+element);
+			console.log($(this).attr("class"));//각각의 속성을 보기때문에 this!
+		});
+
+		/*var data = ["홍길동", "아무무", "티모", "아리"];
+		//selectAll 해서 foreach 했던 것과 흡사
+		$.each(data, function(index, value){
+			console.log(index+" : "+value);
+		});
+		
+		var obj = {
+			name : "아무무",
+			score : 95,
+			grade : "A"
+		};
+		$.each(obj, function(key, value){
+			console.log(key+" : "+value);
+		});*/
+	});
+
+</script>
+
+<div class="m1">메뉴1</div>
+<div class="m3">메뉴2</div>
+<div class="m4">메뉴3</div>
+
+</body>
+</html>

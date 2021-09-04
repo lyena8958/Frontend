@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	margin: 0;
+	padding: 5%;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	line-height: 100%;
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+//prompt에서 010이후부터-를 넣어서 작성해주세요
+// 1234-5678
+// background색깔이 랜덤하게 나올수있도록! [1234-****님 안녕하세요!]
+// vs 1234-56789 --> 유효성검사
+var phone = prompt("010이후 부터의 '-'를 넣어서 전화번호를 입력해주세요!'")
+
+//앞자리
+var indexCnt1 = phone.substring(0, phone.lastIndexOf("-")); //0부터 -이전까지
+//뒷자리
+var indexCnt2 = phone.substring(phone.indexOf("-")+1, 9); //-다음자리부터 마지막자리까지(-1:-제외)
+console.log(indexCnt1.length);
+console.log(indexCnt2.length);
+//유효성검사
+
+      // 1. - 유무
+      // indexOf("-") < 0 이면, 다시
+      // 2. split()
+      // arrData[0] == 4    and     arrData[1] == 4 이어야만 통과
+      // 3. 숫자판별
+      // arrData[0]과 arrData[1]이 isNaN() 만약 true면, 다시
+      
+      
+//오입력
+if(!(indexCnt1.length == 4 && indexCnt2.length == 4)){
+	document.write("🤦‍♀️ 번호를 잘못 입력하셨습니다. 🤦‍♀️<br> 새로고침하여 재입력해주세요!");
+}
+//올바르게 입력되면 환영문구출력
+else{
+	var color = ["#FAEBFF", "#FFD9EC", "#B2CCFF", "#FFB2F5","#FFB2D9" ];
+	var user = indexCnt1+"-****";
+	var str = "<div style='background-color:"+color[Math.floor(Math.random()*4)]+"'>"+"<h2>"+"🙋‍♀️🙋‍♂️ "+user+" 님, 반갑습니다!! 🙋‍♂️🙋‍♀️"+"</h2>"+"</div>"
+	document.write(str);
+}
+
+</script>
+
+
+
+</body>
+</html>

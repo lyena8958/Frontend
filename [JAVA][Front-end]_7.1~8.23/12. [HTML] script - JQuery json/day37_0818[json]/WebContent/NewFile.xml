@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+-> 마크업 랭귀지 : xml
+
+<name>a</name>
+<location>~~/~~~/~~~~.html</location> <!-- 이름이 a인 html파일이있는데 -->
+<user>~~~.com</user> <!-- 사용자가 .com으로 부르면 a가 호출되어 이동된다. -->
+<IdName>a</IdName>
+
+->xml 파일로 데이터를 주고받을수있다!
+-> "설정파일" 페이지, 컨테이너(xxx) 들이 동작하기 위해서 참고하는 설정파일
+-> .json == 데이터를 주고받기위한 포맷!(.txt, .excel 처럼 확장자이다.)

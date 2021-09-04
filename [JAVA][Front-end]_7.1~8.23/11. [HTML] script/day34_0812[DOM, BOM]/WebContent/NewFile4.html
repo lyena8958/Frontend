@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+li {
+	background-color: pink;
+	border: 1px solid hotpink;
+	margin: 2px;
+}
+</style>
+</head>
+<body>
+
+	<ul id="menu">
+		<li>메뉴 목록1</li>
+		<li>메뉴 목록2</li>
+		<li>메뉴 목록3</li>
+		<li>메뉴 목록4</li>
+		<li>메뉴 목록5</li>
+	</ul>
+
+	<script type="text/javascript">
+		//누를 때 li안의 내용을 "제거"해보자
+		
+		//리스트'들'에게 적용할 것이니 All로 (배열로받음) 
+		var lists = document.querySelectorAll('li');//all을사용했기때문에 여러개가온다.
+		for (var i = 0; i < lists.length; i++) {
+			lists[i].addEventListener('click', function() {//클릭했을때 함수수행 할거다.
+				//console.log(this.parentNode); //16~22라인
+				//나의 부모가 자식삭제(나)를 진행할거야
+				this.parentNode.removeChild(this);
+			
+			});
+		}
+
+		
+		//리스트를 누를때 뭔가를 할려고한다. 기본 폼
+		/* var lists = document.querySelectorAll('li');//all을사용했기때문에 여러개가온다.
+		for (var i = 0; i < lists.length; i++) {
+			lists[i].addEventListener('click', function() {//클릭했을때 함수수행 할거다.		
+		
+			});
+		} */
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- BOM -->
+<title>location</title>
+</head>
+<body>
+
+<select>
+	<!-- value="" : 는 없어도되지만 유지보수성과 form이 유지되는 것이 좋다 -->
+	<option value="">선택한 페이지로 이동합니다.</option><!-- 이동안하니 공백 -->
+	<option value="naver.com">네이버</option>
+	<option value="daum.net">다음</option>
+	<option value="youtube.com">유튜브</option>
+</select>
+
+
+<!-- 공통 :https://www. -->
+<!-- https://www.naver.com/ -->
+<!-- https://www.daum.net/ -->
+<!-- https://www.youtube.com/ -->
+
+<script type="text/javascript">
+	var movesite = document.querySelector('select'); // select를 가져와줘
+	movesite.onchange=function(){ // onchange 옵션을 선택할 때
+		if(this.value){ //this.value!=null -> ""값이 없으면 F
+			location.assign("https://www."+this.value)
+		}
+	}
+	// onclick처럼 option은 체인지라 onchange로 해준느 것
+</script>
+
+</body>
+</html>

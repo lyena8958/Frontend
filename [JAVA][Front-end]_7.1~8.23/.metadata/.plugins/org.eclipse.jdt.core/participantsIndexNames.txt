@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\KIM_0622\workspace\국비_JAVA_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3044745361.index
+\day38_0819\src
+C:\KIM_0622\workspace\국비_JAVA_workspace-자바,프론트\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3044745361.index
+\day38_0819\src

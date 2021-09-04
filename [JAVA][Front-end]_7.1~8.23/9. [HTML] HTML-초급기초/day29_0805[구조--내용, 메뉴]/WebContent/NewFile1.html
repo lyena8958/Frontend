@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구조 실습</title>
+<style>
+	.product{
+		background: lightgray;
+	}
+	#special{
+		background: pink;
+	
+	}
+	.fc {
+		color: red;
+	}
+
+</style>
+</head>
+<body>
+
+<!-- div요소를 적극활용 >> 유지보수성이 좋다 (절대 단독으로 쓰지않음 id class 활용)// 단독 id(~몇일까지 할인), 반복 class -->
+
+<!-- 타이틀(로고) -->
+<h2>페이지의 간단한 전체 설명</h2> <!-- h1보다 h2를 더 많이 쓴다 왜?? h1쓸 일이 후에 생길 수도 있어서 -->
+
+<hr> <!-- 가로선은 포폴용.. 채점할 때 보기 쉬우니까(페이지 가독성 ↑) -->
+
+<div class="product"> <!-- id나 class를 꼭 달아준다. 뭐하는 문단인지 알기위해 -->
+<h4 class="fc">상품 설명</h4> <!-- 중제목 -->
+
+<!-- p: 문단을 채울 때 쓰기가 적합하다. --><!-- div는 전체 한줄을 차지하니 블럭요소이다. // span 인라인요소 -->
+<p>Lorem ipsum dolor sit amet, <span class="fc">consectetur</span> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
+<!-- consectetur를 강조하고 싶어서 span사용(인라인강조) >> 강조안됐는데? css 해야함-->
+<!-- 왜 글씨가 깨지지? 밀리지? 하면 블럭요소임을 유추가능! -->
+
+<ul>
+	<li>
+		<h5 class="fc">상품1</h5>
+		<p><span class="fc">상품1</span>에 대한 설명</p>
+	</li>
+	<li>
+		<h5>상품1</h5>
+		<p>상품1에 대한 설명</p>
+		
+	</li>
+	<li>
+		<h5>상품1</h5>
+		<p>상품1에 대한 설명</p>
+	</li>
+</ul>
+</div>
+
+
+
+<div id="special">
+<h4>상품 설명</h4> <!-- 중제목 -->
+
+<!-- p: 문단을 채울 때 쓰기가 적합하다. --><!-- div는 전체 한줄을 차지하니 블럭요소이다. // span 인라인요소 -->
+<p>Lorem ipsum dolor sit amet, <span>consectetur</span> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
+<!-- consectetur를 강조하고 싶어서 span사용 >> 강조안됐는데? css 해야함-->
+<!-- 왜 글씨가 깨지지? 밀리지? 하면 블럭요소임을 유추가능! -->
+
+<ul>
+	<li>
+		<h5>상품1</h5>
+		<p>상품1에 대한 설명</p>
+	</li>
+	<li>
+		<h5>상품1</h5>
+		<p>상품1에 대한 설명</p>
+		
+	</li>
+	<li>
+		<h5>상품1</h5>
+		<p>상품1에 대한 설명</p>
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

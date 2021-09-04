@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var arr1 = new Array(3, 2, 1);
+		var arr2 = [ 10, 20, 30 ];
+		console.log(arr1[0]);
+		console.log(arr2[1]);
+
+		arr2[3] = 400; // 요소 추가
+		console.log(arr2[3]);
+
+		arr2[3] = 4; // 요소 변경 (추가와 차이가 없다.)
+		console.log(arr2[3]);
+
+		console.log(arr1.sort()); //오름차순
+		arr2.push('키위');
+		console.log(arr2.pop());
+		console.log(arr2.length);
+
+		console.log('<br>');
+		var score = [ 50, 70, 80 ];
+		var sum = 0;
+		var avg;
+		for (var i = 0; i < score.length; i++) {
+			sum = sum + score[i];
+		}
+		avg = sum / score.length * 1.0;
+		console.log("총점은 " + sum + "점 입니다.");
+		console.log("평균은 " + avg + "점 입니다.")
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>footer 아래에 두기</title>
+<style>
+	*{
+		margin : 0;
+		padding: 0;
+	}
+	li{
+		list-style-type : none;
+	}
+	a{
+		text-decoration : none;
+		color: black;
+	}
+	header{
+		background: cornflowerblue;
+		height: 50px;
+	}
+	#container{		/*전체(100%)에서 90만큼 나갔(사용)습니다.*/
+		min-height : calc( 100vh - 90px ); /*최소 확보해야하는 높이*/
+	
+	}
+	.menu{
+		background: lightblue;
+	}
+	.menu li{
+		display : inline; /*리스트를 가로줄로*/
+	}
+	.content{
+		background: pink;
+	}
+	footer{
+		background: lightgray;
+		height: 40px;
+	}
+	
+
+</style>
+</head>
+<body>
+
+	<header>
+		<h1>
+			<a href="#">LOGO</a>
+		</h1>
+	</header>
+	<div id="container">
+		<ul class="menu">
+			<!-- 메뉴바에(li) 속성이나 스타일을  ul클래스 부여-->
+			<li><a href="#">메뉴1</a></li>
+			<li><a href="#">메뉴2</a></li>
+			<li><a href="#">메뉴3</a></li>
+			<li><a href="#">메뉴4</a></li>
+		</ul>
+		<div class="content">
+			<p>내용내용1</p>
+			<br>
+			<p>내용내용2</p>
+			<br>
+			<p>내용내용3</p>
+			<br>
+			<p>내용내용4</p>
+			<br>
+			<p>내용내용5</p>
+			<br>
+		</div>
+	</div>
+	<footer>
+		<p>고객정보처리방침</p>
+	</footer>
+
+</body>
+</html>

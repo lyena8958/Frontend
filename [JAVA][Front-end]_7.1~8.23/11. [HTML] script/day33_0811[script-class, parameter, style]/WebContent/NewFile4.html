@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	width: 100px;
+	heigth: 100px;
+	text-align: center;
+	line-height: 100px;/*문자가 차지할 공간을 차지 박스의 크기를 동일하게 맞춰주면 가운데로정렬*/
+}
+</style>
+<script type="text/javascript">
+	var color = [ "pink", "lightblue", "lightgreen" ];
+	var str = "<div style='background-color:"+color[0]+"'>" + "멘트" + "</div>";
+	var rand = Math.floor(Math.random()*3); //Math.random()*3->소숫점까지나옴//floor소숫점제거
+	var str2 = "<div style='background-color:"+color[rand]+"'>" + "멘트" + "</div>";
+	document.write(str2);
+</script>
+</head>
+<body>
+
+
+
+</body>
+</html>

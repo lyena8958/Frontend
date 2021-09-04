@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>단일 객체</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+	<!-- 객체생성 -->
+		var car = {
+			name : '자동차',
+			speed : 120,
+			show : function() {//자바스크립트에선 함수도 값(오브젝트)처럼 사용한다.
+				console.log(this.name + "은 " + this.speed);
+			}
+		}
+		var coffee = {
+			name : '오늘의 커피',
+			price : 4100,
+			show : function(cnt) {//자바스크립트에선 함수도 값(오브젝트)처럼 사용한다.
+				console.log(this.name + "x" + cnt + "개 : " + (cnt * this.price)
+						+ "원");
+			}
+		}
+
+		car.show();
+		console.log(car.name);
+
+		coffee.show(2);
+		console.log(coffee.name)
+	</script>
+
+</body>
+</html>

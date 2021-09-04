@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#con {
+   color: red;
+}
+</style>
+<script type="text/javascript">
+   function check(a, b) {
+      if (a == "" || b == "") {
+         document.getElementById("con").innerHTML="미입력사항확인";
+      } else if (isNaN(b)) {
+         document.getElementById("con").innerHTML=a+"님, 나이에 잘못된 값이 들어왔습니다!";
+      } else {
+         document.write(a + "님, 다음 페이지로!");
+      }
+   }
+</script>
+</head>
+<body>
+
+   <table>
+      <tr>
+         <th>이름</th>
+         <td><input type="text" id="mname"></td>
+      </tr>
+      <tr>
+         <th>나이</th>
+         <td><input type="text" id="mage"></td>
+      </tr>
+      <tr align="right">
+         <td colspan="2"><input type="button" id="btn"
+            onclick="check(mname.value,mage.value);" value="회원가입"></td>
+      </tr>
+   </table>
+   <span id="con"></span>
+
+</body>
+</html>

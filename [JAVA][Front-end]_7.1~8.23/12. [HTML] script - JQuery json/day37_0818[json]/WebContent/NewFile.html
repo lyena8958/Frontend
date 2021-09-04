@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax 메서드 실습1</title>
+</head>
+<style>
+	table{
+		width : 100%;
+		
+	}
+</style>
+<script src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+//ajax() 라는 메서드 내부에 {}  << 라는 인자가있는데, ajax을 사용하는 형태이다.
+// 여기서 {}는 모두 데이터이며, 딕셔너리처럼 key, value를 사용을 한 것이다. == type:GET, url:data2.json 
+//	== 마치 name:홍길동, score:95인 것처럼
+
+// success를 수행했을 때 function()을 수행중인데, 인자를 data로 사용하는 것은
+// success : function(){}이  ajax안에서 쓰이는것 == ajax 메서드 기능 중하나이다.
+// 해서 아무것도아닌 function()이 data를 갑자기 인자로 받는 것이 아니라, ajax()메서드 기능 중에 하나로서
+//	 function을 사용중에있는데 이제 인자로 아까 받은 data전달
+// 즉 data도 ajax의 기능 중 하나 인 것이다.
+
+
+	$.ajax({
+		type : "GET", // type은 GET, POST가 있는데 get을 많이 쓴다.
+		url : "data1.json", // 자원의 로케이션이 어디있는지.(뭘요청하는지)
+		dataType : "json",	// url데이터 종류는 어떻게 되는지
+		success : function(data){// 성공했을때 어떤 동작할 건지 // data == data.json 전체데이터
+			// 화면에 데이터 내용을 출력
+			//console.log(data); 데이터가 잘 들어왔는지 확인
+			var str = ""; // tbody안에 넣을 데이터
+			
+			//each 함수 : ==foreach data에 있는 내용들을 하나하나 불러서 데이터 저장
+			$.each(data, function(index,obj){//obj가 두번째인자로 쓰일수 있어서 index를 사용하지않아도 넣어주어야함
+				str += "<tr>";
+				// 내가가지고 있는 데이터 이름을 넣음 ↓
+				str += "<td>"+obj.name+"</td>"; 
+				str += "<td>"+obj.score1+"</td>";
+				str += "<td>"+obj.score2+"</td>";
+				str += "<td>"+obj.score3+"</td>";
+				str += "<td>"+obj.score4+"</td>";
+				str += "</tr>";
+			}); // 어떤 것에 대해 어떤 동작을 수행할건지 써야함
+			$("table tbody").append(str);
+		}, 
+		error : function(){ // 틀렸을때 어떤 동작할 건지
+			//console.log(xhr.status + " :  " + xhr.errorText); // 콘솔로 확인하는 경우도 있다.  xhr인자로받아서
+		    /*error: function(request,status,error){
+		        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		     } --> 오류 원인 다 알려줌!*/ 
+			alert("에러발생!");
+		} 
+	}); //type:전송할 방식, url:전송데이터, dataType:타입
+
+</script>
+<body>
+<table border ="1">
+<caption>이번년도 학생들의 시험 점수</caption> <!-- 캡션==표나 사진 담당 -->
+<!-- thade, tbody는 footer, div, span 처럼 구조를 기술한다.(마크업랭귀지) == 영향안준다 -->
+	<thead>
+		<tr> <!-- th(메인)-> h개념으로 바뀌어서 가운데정렬, 굵게 됨 -->
+			<th>학생이름</th>
+			<th>1학기점수</th>
+			<th>2학기점수</th>
+			<th>3학기점수</th>
+			<th>4학기점수</th>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+</body>
+</html>

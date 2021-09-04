@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+li {
+	background-color: pink;
+	border: 1px solid hotpink;
+	margin: 2px;
+}
+</style>
+</head>
+<body>
+
+	<ul id="menu">
+		<li>메뉴 목록1</li>
+		<li>메뉴 목록2</li>
+		<li>메뉴 목록3</li>
+		<li>메뉴 목록4</li>
+		<li>메뉴 목록5</li>
+	</ul>
+
+	<script type="text/javascript">
+		//누를 때 li안의 내용을 변경해보자
+		var ul = document.getElementById('menu'); // 부모에 해당하는 메뉴 replaceChild사용하기 위함
+		//리스트'들'에게 적용할 것이니 All로 (배열로받음) 
+		var lists = document.querySelectorAll('li');//all을사용했기때문에 여러개가온다.
+		for (var i = 0; i < lists.length; i++) {
+			//addEventListener : 진행할 이벤트가 뭐야?(click) 함수로 실행해줄게(function)
+			lists[i].addEventListener('click', function() {//클릭했을때 함수수행 할거다.
+				
+				var li = document.createElement('li'); //새로 리스트와
+				var txt = document.createTextNode('새로 만든 목록'); //목록을 추가
+				li.appendChild(txt); // 글을쓰고싶어(li의 자식인 "문구"를 추가)
+				
+				//ul입장에서 수행 == 변수ul로 불러온다.
+				// replaceChild -> appendChild 류이다.
+				ul.replaceChild(li, this); // (A, B) B를 A요소로 교체 (A가 신규, B가 이전)
+							// 새로만든걸 현재로 고치겠습니다.
+			});
+		}
+		// 위메서드는 한번 클릭하고 변경이 안될때 이용
+		
+		//foreach v(list) :(of) 명(lists)
+		/* for(var list of lists){
+			v.addEventListener();		
+		} */
+	</script>
+
+</body>
+</html>

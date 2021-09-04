@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+@import	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+body, div, header, h2, h3, h4, span, p, input {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	align: center;
+	font-family: 'Gowun Dodum', sans-serif;
+}
+
+header {
+	margin-bottom: 20px;
+	margin-top: 20%;
+}
+
+#menu , #apply{
+	border: 1px solid gray;
+}
+
+li {
+	list-style-type: none;
+	border: 1px solid gray;
+}
+
+#menu {
+	width: 400px;
+	height: 143px;
+}
+
+#menu, #menu td, #apply{
+	margin: 0 auto;
+	border: 1px solid gray;
+}
+
+#menuTitle td {
+	width: 200px;
+	height: 50px;
+}
+
+#amountarea td {
+	height: 30px;
+}
+
+#menuTitle {
+	background-color: lightpink;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+
+.content td, #apply {
+	background-color: #FFFFE9;
+}
+#apply{
+	margin : 0;
+	border : 1px solid gray;
+}

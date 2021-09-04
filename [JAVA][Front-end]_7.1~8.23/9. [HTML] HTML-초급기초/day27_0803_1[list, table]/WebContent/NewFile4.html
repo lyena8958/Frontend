@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>표 관련 요소</title>
+</head>
+<body>
+<!-- 일명: 엔티티 코드 -->
+<!--  < &lt; -->
+<!--  > &gt; -->
+<!--  &gt;ㅅ&lt; == >ㅅ< -->
+
+<form method="post" > <!-- action="control.jsp" //action: 컨트롤에게 전송  -->
+	<table border="1"> <!-- 표만들기 포트폴리오엔 많이 쓰이는데, 실무에선 잘 안씀..! -->
+	<!-- tr: 행, td:열 -->
+		<tr>
+		<td>아이디입력</td>
+		<td><input type="password"></td> <!-- <td>확인</td> -->
+		</tr>
+		
+		<tr>
+		<td>비밀번호입력</td>
+		<td><input type="password"></td>
+		</tr>
+		
+		<tr>
+		<td>비밀번호확인</td>
+		<td><input type="password"></td>
+		</tr>
+		
+		<tr>	<!-- align: center 사용가능 -->
+		<td colspan="2" align="right"><input type ="submit" value="회원가입하기"></td>  <!-- <td>회원가입</td> -->
+		<!--  colspan 표병합 "2" 두열만큼 병합하겠다. -->
+		</tr>
+	</table>
+</form>
+</body>
+</html>

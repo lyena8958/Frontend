@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>화면배치3</title>
+<style>
+/*width설정한이유: 너비를 지정안해주면 화면 엄청 축소해야 차이점이보임*/
+
+/*float 을 설정하면 배치하지 않은 건에 대해 관리하기가 어렵다. --> clear: both*/
+	.a{
+		float: left;
+		background: lightgray;
+		width:40%;
+	}
+	.b{
+		float: right;
+		background: lightblue;
+		width:50%; 
+	}
+	.c{/*a와  b가 사용한 10%의 공간만 사용하게됨*/
+		background: pink;
+		clear : both;/*해서 공간에 할당받지않도록 clear를 해준다.*/
+	}
+
+</style>
+</head>
+<body>
+
+	<div class="a">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+			do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+			enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+			ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+			culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	
+	<div class="b">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+			do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+			enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+			ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+			culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	
+	<div class="c">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+			do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+			enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+			ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+			culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+
+
+</body>
+</html>

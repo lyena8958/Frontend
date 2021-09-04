@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>참치라이더 회원가입</title>
+<!-- day32 NF6, day35 NF참고 -->
+<link rel = "icon" href="image/wave.ico">
+<style>
+@import url("signUpCss3.css");
+radio{
+   color : black;
+}
+</style>
+<script src ="signUpjs3.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+
+
+   <!--3) html+css+js -->
+   <div id="wrap" class="wrapper">
+      <form method ="post" name="join" id="join">
+         <header>
+            <div id="header">
+               <h1 class="h_loho">
+                  <span><img alt="참치라이더 메인문구" src="image/main.png"></span>
+                  <p>라이더 멤버가 되어주세요!!</p>
+               </h1>
+               </div>
+               
+         </header>
+
+         <div id="container">
+            <div class="row_group">
+               <div class="userInput">
+                  <h3 class="list">아이디<span id="idError"></span></h3>
+                  <span class="box int_id" ><input type="text" id="id" class="int check"
+                     maxlength="20"></span>
+               </div>
+               <div class="userInput">
+                  <h3 class="list">비밀번호<span id="pwError"></span></h3>
+                  <span class="box int_id"><input type="password" id="pw" class="int check"
+                     maxlength="20"></span>
+               </div>
+               <div class="userInput">
+                  <h3 class="list">비밀번호 재확인<span id="pwCheckError"></span></h3>
+                  <span class="box int_id"><input type="password" id="pwCheck" class="int check" 
+                     maxlength="20"></span>
+               </div>
+            </div>
+               <div class="row_group">
+               <div class="userInput">
+                  <h3 class="list">성명<span id="nameError"></span></h3>
+                  <span class="box int_id"><input type="text" id="name" class="int check"
+                     maxlength="20"></span>
+               </div>
+               <div class="userInput">
+                  <h3 class="list">전화번호("-" 제외)<span id="phoneNumError"></span></h3>
+                  <span class="box int_id"><input type="text" id="phoneNum" class="int check"
+                     maxlength="11"></span>
+               </div>
+               <div class="userInput">
+                  <h3 class="list">
+                     자택주소<span id="addressError"></span>
+                  </h3>
+                  <div id="address" class="int_id">
+                  <span>
+                  <input type="text" id="sample4_postcode" class="d_form mini line addressCheck" placeholder="우편번호" readonly>
+                  <input type="button" id="addressButton" class="d_form mini" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" readonly>
+                  </span>
+                  <input type="text" id="sample4_roadAddress" class="d_form mini line" placeholder="도로명주소" readonly>
+                  <input type="text" id="sample4_jibunAddress" class="d_form mini line" placeholder="지번주소" readonly>
+                  <span id="guide" style="color:#999;display:none"></span>
+                  <input type="text" id="sample4_extraAddress" class="d_form mini line" placeholder="참고주소" readonly>
+                  <input type="text" id="sample4_detailAddress" class="d_form mini line addressCheck" placeholder="상세주소" >
+                  </div>
+               </div>
+
+               <div class="userInput">
+                  <h3 class="list">이메일<span id="emailError"></span></h3>
+                  <span class="emailInt" id="emailBox"> <input type="text" id="email" maxlength="20" class="check" > 
+                     <span>   @ </span> 
+                        <select id="mail_Select">
+                           <option>이메일 선택</option>
+                           <option>naver.com</option>
+                           <option>gmail.com</option>
+                           <option>daum.net</option>
+                           <option>hanmail.net</option>
+                           <option>hotmail.com</option>
+                           <option>nate.com</option>
+                           <option>yahoo.co.kr</option>
+                           <option>empas.com</option>
+                           <option>freechal.com</option>
+                           <option>lycos.co.kr</option>
+                           <option>korea.com</option>
+                           <option>hanmir.com</option>
+                           <option>dreamwiz.com</option>
+                           <option>paran.com</option>
+                           <!-- <option>직접 입력</option> 직접입력시 입력칸 구현? -->
+                        </select>
+                  </span>
+               </div>
+                  <div class="userInput">
+                  <h3 class="list">개인정보 수집/이용동의<span id="consentError"></span></h3>
+                  <div id="informationConsent">
+                  <span id="consentBox">
+                      <h3>개인정보 처리방침<span id="consentError"></span></h3>
+                     <br> 
+                      ■ 개인정보의 수집 및 이용목적 회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.
+                      <br> 
+                      - 서비스 제공에 관한, 서비스 제공에 따른 요금정산 콘텐츠 제공 , 구매 및 요금 결제 
+                      <br> 
+                      - 고객 관리: 고객 서비스
+                     이용에 따른 본인확인 , 개인 식별 , 불량회원의 부정 이용 방지와 비인가 사용 방지 , 가입 의사 확인
+                     , 불만처리 등 민원처리 , 고지사항 전달 
+                     <br>
+                     - 마케팅 및 광고에 활용 : 이벤트
+                     등 광고성 정보 전달, 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계
+                     <br><br>
+                     ■ 수집하는 개인정보 항목 회사는
+                     정보주체가 고객서비스(상담신청, 상담, 서비스 신청 등)를 이용하기 위하여 고객의 개인 정보를 제공할 때의 서비스
+                     제공을 위한 필수 정보와, 보다 향상된 서비스 제공을 위한 선택정보를 온라인상 입력방법을 통하여 수집하고 있습니다.
+                     수집하는 개인정보의 범위는 아래와 같습니다.
+                     <br> 
+                     개인정보 수집항목 - 필수항목: 이름, 전화번호 , 이메일, 주소
+                     <br> 
+                     -자동수집 항목 : 접속로그( 주소, 전화번호, 결제내역 ) 개인정보 수집방법 정보주체는 웹사이트 또는 서면 절차를 통하여 개인정보처리방침과 이용약관 각각의 내용을
+                     확인하고 ‘동의’ 또는 ‘동의하지 않는다’ 문구를 선택 할 수 있습니다. 정보 주체가 ‘동의’ 문구를 선택한 경우에는
+                     개인정보 수집에 동의한 것으로 봅니다.
+                  </span>
+               </div>
+               <label class="select"><input type="radio" id="check" name="check" value="동의">동의</label>
+               <label class="select"><input type="radio" id="noneCheck"name="check" value="비동의" checked="checked">비동의</label>
+               </div>
+               <div class="btn_area">
+                  <input type="submit" value="가입하기" id="btnJoin" class="btn_type btn_primary">
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+</body>
+</html>

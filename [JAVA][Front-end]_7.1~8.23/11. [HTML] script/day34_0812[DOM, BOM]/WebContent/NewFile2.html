@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.container{
+	height: 100px;
+	background-color: lightgray;
+}
+
+/*컨테이너 안에있는 div만 적용*/
+.container div{
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+	background-color: aqua;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<!-- <div></div> == 31line-->
+</div>
+
+<script type="text/javascript">
+	//container를 인지못하니까 변수로 데려와주자
+	var con = document.querySelector('.container'); // ==23Line
+	con.onclick = function(){
+		this.innerHTML = '<div></div>'; //코드를 바로 넣어서 사용할수도있다.
+		//눌러도 한번만 작동함. (지우고 다시div 반복)
+	}
+</script>
+
+
+</body>
+</html>

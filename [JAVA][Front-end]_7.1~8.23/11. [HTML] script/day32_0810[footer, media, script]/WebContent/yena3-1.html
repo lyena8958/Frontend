@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+@import url("yenaCss.css");
+
+</style>
+<script>
+	function nameInput() {
+		var name = prompt('성함을 입력해주세요.');
+		while (true) {
+			if (isNaN(name)) {
+				break;
+			}
+			name = prompt('숫자 입력은 불가합니다. 문자로 입력해주세요.');
+		}
+	}
+	function phoneNumInput() {
+		var name = prompt('전화번호 입력해주세요.');
+		while (true) {
+			if (isNaN(name)) {
+				break;
+			}
+			name = prompt('숫자 입력은 불가합니다. 문자로 입력해주세요.');
+		}
+	}
+	function check(a, b) {
+		if (a == "" || b == "") {
+			console.log("미입력사항확인");
+		} else if (isNaN(b)) {
+			console.log(a + "님, 나이에 잘못된 값이 들어왔습니다!")
+		} else {
+			documant.write()
+		}
+
+	}
+</script>
+</head>
+<body>
+
+
+	<!--3) html+css+js -->
+	<div class="wrapper">
+		<form>
+			<div id="header">
+				<h1 class="h_loho">
+					<span>회원가입 창</span>
+				</h1>
+			</div>
+			<div id="container">
+				<div>
+					<h4 class="list">아이디</h4>
+					<span class="box"><input type="text" id="name" class="int"></span>
+				</div>
+				<div>
+					<h4 class="list">비밀번호</h4>
+					<span class="box"><input type="text" id="name" class="int"></span>
+				</div>
+				<div>
+					<h4 class="list">비밀번호 재확인</h4>
+					<span class="box"><input type="text" id="name" class="int"></span>
+				</div>
+				<div>
+					<h4 class="list">성명</h4>
+					<span class="box"><input type="text" id="name" class="int"></span>
+				</div>
+
+				<div>
+					<h4 class="list">전화번호</h4>
+					<span>010</span> <span>-</span> <input type="text" id="phoneCenter"
+						class="phontInput"> <span>-</span> <input type="text"
+						id="phoneRight" class="phontInput">
+				</div>
+
+				<div>
+					<h4 class="list">이메일</h4>
+					<input type="text" id="email"> <span> @ </span> <select>
+						<option>==이메일 선택==</option>
+						<option>naver.com</option>
+						<option>gmail.com</option>
+						<option>daum.net</option>
+					</select> <input type="button" id="btn" onclick="check();" value="회원가입">
+				</div>
+
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>
