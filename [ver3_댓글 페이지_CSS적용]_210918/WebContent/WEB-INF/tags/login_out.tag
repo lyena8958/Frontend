@@ -1,0 +1,28 @@
+<%@ tag language="java" pageEncoding="UTF-8" body-content="empty"%>
+<div>
+<ul id="top_Login">
+<li>
+<% if(session.getAttribute("userData")!=null){
+%>		
+		<p id="block">${userData.userID} 안녕!!</p>
+		<a href="logout.do"><button type="button">로그아웃</button></a>
+		<a href="main.do?user=${userData.userID}"><button type="button">내 글보기</button></a>
+		
+<%	
+}	
+else{
+%>
+			<form action="login.do" method="post">
+			<input type="hidden" name="mcnt" value="${mcnt}">
+			<input type="text" name="userID" placeholder="아이디">
+			<input type="text" name="userPW" id="block" placeholder="비밀번호">
+			<input type="submit" value="로그인">
+			<a onClick="signUpMove()"><button type="button">회원가입</button></a>
+			</form>
+
+<%		
+}
+%>
+</li>
+</ul>
+</div>
