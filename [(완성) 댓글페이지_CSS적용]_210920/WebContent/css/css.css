@@ -1,0 +1,84 @@
+@charset "UTF-8";
+a:hover{
+	color : hotpink;
+}
+a{
+	text-decoration : none;
+}
+#content{
+	float : left;
+	width : 70%;
+}
+.size{
+	width: 300px;
+}
+button{
+	display : inline;
+}
+#logo{
+	width : 120px;
+}
+#ad{
+	border : solid 1px lightgray;
+	padding :10px;
+	float : right;
+}
+#ad ul li a img{
+	width : 300px;
+	height : 300px;
+
+}
+#ad ul{
+	list-style : none;
+}
+.hr{
+	list-style : none;
+	
+}
+.dashHR{
+	display : block;
+	clear : both;
+	magrin : 30px 0;
+	border : 0px;
+	border-top : 3px dashed #ddd;
+	
+}
+#top_Login{
+	list-style:none;
+	margin-left : 70%;
+	
+}
+#block{
+	display : block;
+	margin-bottom : 10px;
+}
+.cmt_contents{
+	padding : 15px;
+	margin : 10px 0 10px 0;
+	background : #f8fafb;
+	border-radius : 5px;
+	border : 1px solid #e8e8e8;
+	line-height : 1.8em;
+	margin : 
+}
+#reply{
+	margin-left :15px;
+	
+}
+#guest{
+	font-weight : bold;
+}
+#ReGuest{
+	font-weight : bold;
+	margin-left :15px;
+}
+#message, #reply{
+	margin-top : 0;
+	margin-bottom : 0;
+}
+#msgInfo, #replyInfo{
+	color : gray;	
+}
+.text{
+	height:20px;
+}
